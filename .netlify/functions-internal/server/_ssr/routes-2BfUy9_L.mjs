@@ -119,7 +119,7 @@ var NAV = [
 	}
 ];
 var INSTAGRAM = "https://instagram.com/makeupartistAnita";
-var WHATSAPP_URL = `https://wa.me/447000000000?text=${encodeURIComponent("Hello Anita, I'd like to enquire about your makeup services.")}`;
+var WHATSAPP_URL = `https://wa.me/+44 7460 285854?text=${encodeURIComponent("Hello Anita, I'd like to enquire about your makeup services.")}`;
 var GALLERY = [
 	{
 		src: image2_default,
