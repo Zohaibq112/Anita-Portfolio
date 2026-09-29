@@ -1,14 +1,14 @@
-# Kateryna Editorial
+# Anita Editorial
 
 LUXURY WEBSITE GENERATION PROMPT
 
-MAKEUP ARTIST KATERYNA • MELBOURNE
+MAKEUP ARTIST Anita • London
 
 Create a premium, modern, elegant luxury beauty website for:
 
-MAKEUP ARTIST KATERYNA
+MAKEUP ARTIST Anita
 
-Professional Makeup Artist based in Melbourne, Australia.
+Professional Makeup Artist based in London, England.
 
 The website should be inspired by the visual sophistication of a high-end editorial beauty brand.
 
@@ -18,7 +18,7 @@ Elegant • Feminine • Modern • Premium • Editorial • Timeless
 
 The website must NOT look like a generic salon, cheap makeup template, or overly colorful beauty website.
 
-Kateryna herself should remain the center of the brand.
+Anita herself should remain the center of the brand.
 
 1. WEBSITE LANGUAGE
 
@@ -74,15 +74,15 @@ Use du/dein throughout the website.
 
 Brand:
 
-Makeup Artist Kateryna
+Makeup Artist Anita
 
 Location:
 
-Melbourne
+London
 
 Professional positioning:
 
-Makeup Artist • Melbourne
+Makeup Artist • London
 
 Services communicated by the provided profile:
 
@@ -100,7 +100,7 @@ Booking positioning:
 
 Buchung per Direktnachricht
 
-The website must be designed around Kateryna as an individual makeup artist.
+The website must be designed around Anita as an individual makeup artist.
 
 Do NOT invent:
 
@@ -142,7 +142,7 @@ The overall brand feeling:
 
 Elegant. Modern. Makellos. Persönlich.
 
-The website should communicate that Kateryna creates polished makeup looks designed to remain beautiful throughout important occasions and photography.
+The website should communicate that Anita creates polished makeup looks designed to remain beautiful throughout important occasions and photography.
 
 Primary audience:
 
@@ -160,7 +160,7 @@ Kundinnen, die hochwertiges und langanhaltendes Make-up suchen
 
 Create a sophisticated luxury beauty aesthetic inspired by:
 
-Modern European editorial beauty + Melbourne fashion aesthetic + feminine luxury.
+Modern European editorial beauty + London fashion aesthetic + feminine luxury.
 
 The website should be highly photographic.
 
@@ -314,13 +314,13 @@ Desktop:
 
 Left:
 
-KATERYNA
+Anita
 
 Center navigation:
 
 Startseite
 
-Über Kateryna
+Über Anita
 
 Leistungen
 
@@ -356,7 +356,7 @@ Mobile:
 
 Hamburger menu
 
-Kateryna wordmark
+Anita wordmark
 
 Prominent CTA
 
@@ -378,7 +378,7 @@ Use a cinematic treatment with subtle movement.
 
 Hero eyebrow:
 
-MAKEUP ARTIST • MELBOURNE
+MAKEUP ARTIST • London
 
 Main headline:
 
@@ -404,7 +404,7 @@ Add a subtle scroll indicator.
 
 The hero must immediately communicate:
 
-Kateryna + Makeup Artist + Melbourne + Luxury + Beauty
+Anita + Makeup Artist + London + Luxury + Beauty
 
 9. BEAUTY STATEMENT
 
@@ -434,25 +434,25 @@ Selbstbewusstsein
 
 Use a large beauty image beside the text.
 
-10. ÜBER KATERYNA
+10. ÜBER Anita
 
 Create a sophisticated split-screen section.
 
 One side:
 
-Large portrait of Kateryna.
+Large portrait of Anita.
 
 Other side:
 
 Eyebrow:
 
-ÜBER KATERYNA
+ÜBER Anita
 
 Heading:
 
 Make-up mit Liebe zum Detail.
 
-Write elegant copy introducing Kateryna as a professional makeup artist based in Melbourne.
+Write elegant copy introducing Anita as a professional makeup artist based in London.
 
 Focus on:
 
@@ -474,7 +474,7 @@ Do not invent biography details.
 
 CTA:
 
-Mehr über Kateryna
+Mehr über Anita
 
 11. SIGNATURE STYLE
 
@@ -482,7 +482,7 @@ Create a strong editorial section.
 
 Heading:
 
-Der Kateryna Look
+Der Anita Look
 
 Supporting statement:
 
@@ -658,17 +658,17 @@ Mobile:
 
 Swipeable gallery
 
-Do not use generic stock images when actual Kateryna work is available.
+Do not use generic stock images when actual Anita work is available.
 
 15. FEATURED BEAUTY LOOK
 
 Create a dramatic full-width image section.
 
-Use one of Kateryna's strongest beauty images.
+Use one of Anita's strongest beauty images.
 
 Overlay:
 
-DER KATERYNA LOOK
+DER Anita LOOK
 
 Heading:
 
@@ -682,13 +682,13 @@ CTA:
 
 Portfolio ansehen
 
-16. WHY KATERYNA
+16. WHY Anita
 
 Create a refined trust section.
 
 Heading:
 
-Warum Kateryna?
+Warum Anita?
 
 Create four elegant points.
 
@@ -744,7 +744,7 @@ Create an editorial social section.
 
 Heading:
 
-Mehr von Kateryna
+Mehr von Anita
 
 Supporting text:
 
@@ -780,13 +780,13 @@ Heading:
 
 Häufige Fragen
 
-Welche Leistungen bietet Kateryna an?
+Welche Leistungen bietet Anita an?
 
-Kateryna bietet professionelles Make-up für Brautstyling, Events, besondere Anlässe und Fotoshootings an.
+Anita bietet professionelles Make-up für Brautstyling, Events, besondere Anlässe und Fotoshootings an.
 
 Wie kann ich einen Termin anfragen?
 
-Nutze das Anfrageformular oder kontaktiere Kateryna direkt über Instagram.
+Nutze das Anfrageformular oder kontaktiere Anita direkt über Instagram.
 
 Kann ich meine eigenen Wünsche und Inspirationen mitbringen?
 
@@ -794,11 +794,11 @@ Ja. Deine persönlichen Vorstellungen und Inspirationen können bei der Planung 
 
 Ist das Make-up langanhaltend?
 
-Kateryna legt besonderen Wert auf ein makelloses und langanhaltendes Finish.
+Anita legt besonderen Wert auf ein makelloses und langanhaltendes Finish.
 
-Wo befindet sich Katerynas Service?
+Wo befindet sich Anitas Service?
 
-Kateryna ist als Makeup Artist in Melbourne tätig. Für genaue Informationen zur Verfügbarkeit und zum Einsatzort bitte direkt anfragen.
+Anita ist als Makeup Artist in London tätig. Für genaue Informationen zur Verfügbarkeit und zum Einsatzort bitte direkt anfragen.
 
 Wie hoch sind die Preise?
 
@@ -808,9 +808,9 @@ Bietest du Brautstyling an?
 
 Ja. Brautstyling gehört zu den angebotenen Leistungen.
 
-Wie kann ich Kateryna buchen?
+Wie kann ich Anita buchen?
 
-Sende eine Anfrage über das Kontaktformular oder kontaktiere Kateryna direkt über Instagram.
+Sende eine Anfrage über das Kontaktformular oder kontaktiere Anita direkt über Instagram.
 
 Do not invent exact pricing, durations or policies.
 
@@ -888,13 +888,13 @@ Kontakt
 
 Include:
 
-Makeup Artist Kateryna
+Makeup Artist Anita
 
-Melbourne
+London
 
 Instagram
 
-@makeupartistkateryna
+@makeupartistAnita
 
 Booking CTA:
 
@@ -906,7 +906,7 @@ Do not invent an email address unless one is provided.
 
 22. FINAL CTA
 
-Create a cinematic closing section using one of Kateryna's strongest beauty images.
+Create a cinematic closing section using one of Anita's strongest beauty images.
 
 Use a dark elegant overlay.
 
@@ -934,11 +934,11 @@ Use deep espresso background.
 
 Logo/name:
 
-KATERYNA
+Anita
 
 Subtitle:
 
-MAKEUP ARTIST • MELBOURNE
+MAKEUP ARTIST • London
 
 Statement:
 
@@ -948,7 +948,7 @@ Navigation:
 
 Startseite
 
-Über Kateryna
+Über Anita
 
 Leistungen
 
@@ -962,11 +962,11 @@ Kontakt
 
 Social:
 
-Instagram — @makeupartistkateryna
+Instagram — @makeupartistAnita
 
 Location:
 
-Melbourne
+London
 
 Legal:
 
@@ -978,7 +978,7 @@ Cookie-Richtlinie
 
 Copyright:
 
-© Kateryna
+© Anita
 
 24. MOBILE EXPERIENCE
 
@@ -1014,9 +1014,9 @@ Anfrage senden
 
 The first mobile screen should immediately show:
 
-KATERYNA
+Anita
 
-Makeup Artist • Melbourne
+Makeup Artist • London
 
 Makellos • Modern • Individuell
 
@@ -1076,27 +1076,27 @@ Elegant • Smooth • Premium • Intentional
 
 26. SEO
 
-Optimize for relevant German beauty searches around Melbourne.
+Optimize for relevant German beauty searches around London.
 
 Potential keywords:
 
-Makeup Artist Melbourne
+Makeup Artist London
 
-Make-up Artist Melbourne
+Make-up Artist London
 
-Brautstyling Melbourne
+Brautstyling London
 
-Braut Make-up Melbourne
+Braut Make-up London
 
-Bridal Makeup Melbourne
+Bridal Makeup London
 
-Make-up für Hochzeiten Melbourne
+Make-up für Hochzeiten London
 
-Event Make-up Melbourne
+Event Make-up London
 
-Fotoshooting Make-up Melbourne
+Fotoshooting Make-up London
 
-Professionelles Make-up Melbourne
+Professionelles Make-up London
 
 Do not keyword-stuff.
 
@@ -1124,11 +1124,11 @@ Fast page loading
 
 Suggested meta title:
 
-Kateryna | Makeup Artist & Brautstyling in Melbourne
+Anita | Makeup Artist & Brautstyling in London
 
 Suggested meta description:
 
-Professionelles, makelloses und langanhaltendes Make-up für Brautstyling, Events und Fotoshootings in Melbourne.
+Professionelles, makelloses und langanhaltendes Make-up für Brautstyling, Events und Fotoshootings in London.
 
 27. PERFORMANCE
 
@@ -1184,7 +1184,7 @@ Follow this exact visual narrative:
 
 01 — HERO
 
-Makeup Artist • Melbourne
+Makeup Artist • London
 
 ↓
 
@@ -1194,7 +1194,7 @@ Schönheit, die sich nach dir anfühlt.
 
 ↓
 
-03 — ÜBER KATERYNA
+03 — ÜBER Anita
 
 Artist introduction.
 
@@ -1220,7 +1220,7 @@ Für deinen ganz besonderen Moment.
 
 07 — PORTFOLIO
 
-Actual Kateryna work.
+Actual Anita work.
 
 ↓
 
@@ -1230,7 +1230,7 @@ Makellose Schönheit, modern interpretiert.
 
 ↓
 
-09 — WHY KATERYNA
+09 — WHY Anita
 
 Persönlich • Makellos • Langanhaltend • Individuell
 
@@ -1244,7 +1244,7 @@ Was Kundinnen sagen
 
 11 — INSTAGRAM
 
-Mehr von Kateryna
+Mehr von Anita
 
 ↓
 
@@ -1268,7 +1268,7 @@ Bereit für deinen perfekten Look?
 
 15 — FOOTER
 
-Kateryna • Makeup Artist • Melbourne
+Anita • Makeup Artist • London
 
 30. FINAL DESIGN STANDARD
 
@@ -1278,7 +1278,7 @@ Eine luxuriöse Beauty-Marke + hochwertiges Makeup-Portfolio + modernes Editoria
 
 The strongest visual identity should come from:
 
-Katerynas tatsächliche Bilder
+Anitas tatsächliche Bilder
 
 combined with:
 
@@ -1296,15 +1296,15 @@ Minimal layouts
 
 Premium whitespace
 
-Modern Melbourne aesthetic
+Modern London aesthetic
 
 The website should immediately communicate:
 
-„Kateryna kreiert makellose, moderne und langanhaltende Make-up-Looks für besondere Momente.“
+„Anita kreiert makellose, moderne und langanhaltende Make-up-Looks für besondere Momente.“
 
 The visitor journey should be:
 
-Kateryna entdecken → Stil verstehen → Arbeiten ansehen → Leistungen entdecken → Vertrauen aufbauen → Anfrage senden
+Anita entdecken → Stil verstehen → Arbeiten ansehen → Leistungen entdecken → Vertrauen aufbauen → Anfrage senden
 
 The final design must be:
 
@@ -1314,7 +1314,7 @@ Most importantly:
 
 Do not make the website look like a generic makeup artist template.
 
-Use Kateryna's actual imagery wherever available.
+Use Anita's actual imagery wherever available.
 
 The first provided image must be treated as the artist/hero image.
 
@@ -1322,7 +1322,7 @@ Photography and typography should create the luxury feeling rather than excessiv
 
 The entire visible website must be in German.
 
-The website should look like a premium, established makeup artist brand in Melbourne, with Kateryna herself at the heart of the experience.
+The website should look like a premium, established makeup artist brand in London, with Anita herself at the heart of the experience.
 
 This project was built with [Lovable](https://lovable.dev).
 
@@ -1344,3 +1344,5 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+#   A n i t a - P o r t f o l i o  
+ 
