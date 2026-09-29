@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Accordion,
@@ -9,43 +9,49 @@ import {
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
-
+import bridal from "@/assets/bridal.png";
 import hero from "@/assets/image.webp";
-import img2 from "@/assets/image-2.webp";
-import img3 from "@/assets/image-3.webp";
-import img4 from "@/assets/image-4.webp";
-import img5 from "@/assets/image-5.webp";
-import img6 from "@/assets/image-6.webp";
-import img7 from "@/assets/image-7.webp";
-import img8 from "@/assets/image-8.webp";
-import img9 from "@/assets/image-9.webp";
-import img10 from "@/assets/image-10.webp";
+import img2 from "@/assets/image2.png";
+import img3 from "@/assets/image3.png";
+import img4 from "@/assets/image4.png";
+import img5 from "@/assets/image5.png";
+import img6 from "@/assets/image6.png";
+import img7 from "@/assets/image7.png";
+import img8 from "@/assets/image8.png";
+import img9 from "@/assets/image9.png";
+import img10 from "@/assets/image10.png";
+import artist from "@/assets/artist.png";
+import image11 from "@/assets/image11.png";
+import bridal1 from "@/assets/bridal1.png";
+import bridal11 from "@/assets/bridal11.png";
+import bridal1212 from "@/assets/bridal1212.png";
+import logo from "@/assets/Logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kateryna | Makeup Artist & Brautstyling in Melbourne" },
+      { title: "Anita | Makeup Artist & Bridal Makeup in London" },
       {
         name: "description",
         content:
-          "Professionelles, makelloses und langanhaltendes Make-up für Brautstyling, Events und Fotoshootings in Melbourne.",
+          "Professional, flawless and long-lasting makeup for bridal makeup, events and photoshoots in London.",
       },
       {
         property: "og:title",
-        content: "Kateryna | Makeup Artist & Brautstyling in Melbourne",
+        content: "Anita | Makeup Artist & Bridal Makeup in London",
       },
       {
         property: "og:description",
         content:
-          "Makelloses, langanhaltendes Make-up für Bräute, besondere Anlässe, Events und Fotoshootings in Melbourne.",
+          "Flawless, long-lasting makeup for brides, special occasions, events and photoshoots in London.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "de_DE" },
+      { property: "og:locale", content: "en_GB" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "keywords",
         content:
-          "Makeup Artist Melbourne, Brautstyling Melbourne, Braut Make-up Melbourne, Event Make-up Melbourne, Fotoshooting Make-up Melbourne",
+          "Makeup Artist London, bridal makeup London, bride makeup London, event makeup London, photoshoot makeup London",
       },
     ],
     scripts: [
@@ -54,23 +60,23 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BeautySalon",
-          name: "Makeup Artist Kateryna",
+          name: "GemsBeautyLondon",
           description:
-            "Professionelles, makelloses und langanhaltendes Make-up für Brautstyling, Events und Fotoshootings in Melbourne.",
-          areaServed: { "@type": "City", name: "Melbourne" },
+            "Professional, flawless and long-lasting makeup for bridal makeup, events and photoshoots in London.",
+          areaServed: { "@type": "City", name: "London" },
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Melbourne",
-            addressCountry: "AU",
+            addressLocality: "London",
+            addressCountry: "GB",
           },
-          sameAs: ["https://instagram.com/makeupartistkateryna"],
+          sameAs: ["https://instagram.com/makeupartistAnita"],
           makesOffer: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Brautstyling" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bridal makeup" } },
             {
               "@type": "Offer",
-              itemOffered: { "@type": "Service", name: "Events & besondere Anlässe" },
+              itemOffered: { "@type": "Service", name: "Events & special occasions" },
             },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fotoshootings" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Photoshoots" } },
           ],
         }),
       },
@@ -80,82 +86,89 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  { label: "Startseite", href: "#start" },
-  { label: "Über Kateryna", href: "#ueber" },
-  { label: "Leistungen", href: "#leistungen" },
+  { label: "Home", href: "#start" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Brautstyling", href: "#brautstyling" },
+  { label: "Bridal Makeup", href: "#bridal" },
   { label: "FAQ", href: "#faq" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Contact", href: "#contact" },
 ];
 
-const INSTAGRAM = "https://instagram.com/makeupartistkateryna";
+const INSTAGRAM = "https://instagram.com/makeupartistAnita";
+
+// Digits only: country code + number, no "+", spaces or leading 0. Example: 447123456789
+const WHATSAPP_NUMBER = "447000000000";
+const WHATSAPP_MESSAGE = "Hello Anita, I'd like to enquire about your makeup services.";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  WHATSAPP_MESSAGE,
+)}`;
 
 type Shot = {
   src: string;
   alt: string;
-  cat: "Braut" | "Make-up" | "Events" | "Fotoshootings" | "Beauty";
+  cat: "Bridal" | "Makeup" | "Events";
   ratio: string;
 };
 
 const GALLERY: Shot[] = [
   {
     src: img2,
-    alt: "Brautstyling von Kateryna mit natürlichem, makellosem Finish",
-    cat: "Braut",
+    alt: "Bridal makeup by Anita with a natural, flawless finish",
+    cat: "Bridal",
     ratio: "3/4",
   },
   {
     src: img6,
-    alt: "Elegantes Augen-Make-up in Nahaufnahme",
-    cat: "Make-up",
+    alt: "Elegant eye makeup close-up",
+    cat: "Makeup",
     ratio: "3/4",
   },
   {
     src: img5,
-    alt: "Beauty-Porträt mit softem Licht und gepflegtem Hautfinish",
-    cat: "Beauty",
+    alt: "Beauty portrait with soft light and polished skin finish",
+    cat: "Makeup",
     ratio: "1/1",
   },
   {
     src: img7,
-    alt: "Editorial Beauty-Look für ein Fotoshooting in Melbourne",
-    cat: "Fotoshootings",
+    alt: "Editorial beauty look for a photoshoot in London",
+    cat: "Makeup",
     ratio: "3/4",
   },
   {
     src: img4,
-    alt: "Make-up-Look für einen besonderen Anlass",
+    alt: "Makeup look for a special occasion",
     cat: "Events",
     ratio: "3/4",
   },
   {
     src: img9,
-    alt: "Braut-Make-up mit langanhaltendem, harmonischem Finish",
-    cat: "Braut",
+    alt: "Bridal makeup with a long-lasting, harmonious finish",
+    cat: "Bridal",
     ratio: "3/4",
   },
   {
     src: img8,
-    alt: "Detailaufnahme von Haut und Teint nach dem Make-up",
-    cat: "Beauty",
+    alt: "Close-up of skin and complexion after makeup",
+    cat: "Makeup",
     ratio: "1/1",
   },
   {
     src: img10,
-    alt: "Porträt mit definierten Augen und weichem Konturenspiel",
-    cat: "Make-up",
+    alt: "Portrait with defined eyes and soft contouring",
+    cat: "Makeup",
     ratio: "3/4",
   },
   {
     src: img3,
-    alt: "Eleganter Abend-Make-up-Look für Events",
+    alt: "Elegant evening makeup look for events",
     cat: "Events",
     ratio: "3/4",
   },
 ];
 
-const CATS = ["Alle", "Braut", "Make-up", "Events", "Fotoshootings", "Beauty"] as const;
+const CATS = ["All", "Bridal", "Makeup", "Events"] as const;
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -172,23 +185,24 @@ function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "border-b border-border bg-background/85 backdrop-blur-md"
+        scrolled || open
+          ? "border-b border-border bg-background/95 backdrop-blur-md"
           : "border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:h-20 md:px-10">
-        <a
-          href="#start"
-          className={cn(
-            "font-serif text-lg tracking-[0.32em] transition-colors duration-500",
-            scrolled ? "text-foreground" : "text-white md:text-white",
-          )}
-        >
-          KATERYNA
+      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-4 sm:px-5 md:h-20 md:px-10">
+        <a href="#start" aria-label="Anita, makeup artist in London, home" className="flex items-center">
+          <img
+            src={logo}
+            alt="Anita Makeup Artist logo"
+            className={cn(
+              "h-9 w-auto object-contain transition-[filter] duration-500 sm:h-10 md:h-12",
+              scrolled || open ? "brightness-0" : "brightness-0 invert",
+            )}
+          />
         </a>
 
-        <nav aria-label="Hauptnavigation" className="hidden lg:block">
+        <nav aria-label="Main navigation" className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {NAV.map((n) => (
               <li key={n.href}>
@@ -208,7 +222,7 @@ function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#kontakt"
+            href="#contact"
             className={cn(
               "hidden border px-6 py-3 text-[0.7rem] uppercase tracking-[0.2em] transition-colors duration-300 md:inline-block",
               scrolled
@@ -216,16 +230,16 @@ function Header() {
                 : "border-white/70 text-white hover:bg-white hover:text-foreground",
             )}
           >
-            Anfrage senden
+            Send an inquiry
           </a>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-label={open ? "Menü schließen" : "Menü öffnen"}
+            aria-label={open ? "Close menu" : "Open menu"}
             className={cn(
               "flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden",
-              scrolled ? "text-foreground" : "text-white",
+              scrolled || open ? "text-foreground" : "text-white",
             )}
           >
             <span
@@ -246,8 +260,8 @@ function Header() {
 
       {open && (
         <nav
-          aria-label="Mobile Navigation"
-          className="border-t border-border bg-background lg:hidden"
+          aria-label="Mobile navigation"
+          className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-border bg-background lg:hidden"
         >
           <ul className="mx-auto max-w-[1400px] px-5 py-4">
             {NAV.map((n) => (
@@ -268,64 +282,214 @@ function Header() {
   );
 }
 
+const REELS_DATA = [
+  {
+    id: 1,
+    videoUrl: "/reel1.mp4",
+    url: "https://www.instagram.com/reel/REEL_ID_1/",
+    handle: "@makeupartistAnita",
+  },
+  {
+    id: 2,
+    videoUrl: "/reel2.mp4",
+    url: "https://www.instagram.com/reel/REEL_ID_2/",
+    handle: "@makeupartistAnita",
+  },
+  {
+    id: 3,
+    videoUrl: "/reel3.mp4",
+    url: "https://www.instagram.com/reel/REEL_ID_3/",
+    handle: "@makeupartistAnita",
+  },
+];
+
+function Reels() {
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const loadAndPlayVideo = (video: HTMLVideoElement) => {
+    if (!video) return;
+
+    const dataSrc = video.getAttribute("data-src");
+
+    if (dataSrc && !video.src) {
+      video.src = dataSrc;
+      video.load();
+    }
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.warn("Autoplay interrupted:", error);
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const videos = videoRefs.current.filter((el): el is HTMLVideoElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+
+          if (entry.isIntersecting) {
+            loadAndPlayVideo(video);
+          } else {
+            if (video && !video.paused) {
+              video.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0.35 },
+    );
+
+    videos.forEach((video) => observer.observe(video));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  const toggleSound = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const nextMuteState = !isMuted;
+    setIsMuted(nextMuteState);
+    videoRefs.current.forEach((video) => {
+      if (video) video.muted = nextMuteState;
+    });
+  };
+
+  return (
+    <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
+      <Reveal className="mx-auto max-w-2xl text-center">
+        <p className="eyebrow">Instagram Reels</p>
+        <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+          Beauty in Motion
+        </h2>
+        <p className="mx-auto mt-6 max-w-xl text-sm leading-[1.9] text-muted-foreground md:text-base">
+          Follow Anita on Instagram for daily inspiration, transformations and
+          behind-the-scenes moments.
+        </p>
+      </Reveal>
+
+      <div className="mx-auto mt-12 grid grid-cols-3 gap-2 sm:gap-4 md:mt-14 md:gap-6">
+        {REELS_DATA.map((reel, index) => (
+          <Reveal key={reel.id} delay={index * 90}>
+            <a
+              href={reel.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block aspect-[9/16] w-full overflow-hidden bg-[#28221F] shadow-lg transition-all duration-500 hover:-translate-y-1.5"
+            >
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                data-src={reel.videoUrl}
+                className="h-full w-full object-cover"
+                muted={isMuted}
+                loop
+                playsInline
+                preload="metadata"
+              />
+
+              <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-[#28221F]/80 via-[#28221F]/10 to-transparent p-2 opacity-90 transition-opacity duration-300 group-hover:opacity-100 sm:p-4 md:p-6">
+                <span className="hidden text-center text-[0.65rem] font-medium uppercase tracking-[0.22em] text-white/90 sm:inline md:text-[0.7rem]">
+                  {reel.handle}
+                </span>
+              </div>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+
+      <div className="mt-12 flex flex-col items-center justify-center gap-6">
+        <button
+          onClick={toggleSound}
+          type="button"
+          className="border border-foreground/20 bg-transparent px-5 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:bg-foreground/5 active:scale-95"
+        >
+          {isMuted ? "Unmute reels" : "Mute reels"}
+        </button>
+
+        <a
+          href={INSTAGRAM}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-foreground px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85"
+        >
+          View on Instagram
+        </a>
+      </div>
+    </section>
+  );
+}
+
 function Hero() {
   return (
     <section id="start" className="relative min-h-[100svh] w-full overflow-hidden">
-      <img
-        src={hero}
-        alt="Makeup Artist Kateryna aus Melbourne"
-        width={1080}
-        height={1080}
-        className="hero-zoom absolute inset-0 h-full w-full object-cover object-center"
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        src="/hero.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#28221F]/85 via-[#28221F]/35 to-[#28221F]/40" />
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-[1400px] flex-col justify-end px-5 pb-28 pt-32 md:px-10 md:pb-24">
         <div className="max-w-3xl">
-          <p className="fade-up eyebrow text-white/75">Makeup Artist • Melbourne</p>
+          <p className="fade-up eyebrow text-white/75">Makeup Artist • London</p>
           <h1
-            className="fade-up mt-6 font-serif text-[2.75rem] font-light leading-[1.05] text-white sm:text-6xl lg:text-7xl"
+            className="fade-up mt-6 font-serif text-[2.4rem] font-light leading-[1.05] text-white sm:text-6xl lg:text-7xl"
             style={{ animationDelay: "120ms" }}
           >
-            Deine Schönheit.
+            Your beauty.
             <br />
-            Perfekt in Szene gesetzt.
+            Perfectly brought to life.
           </h1>
           <p
             className="fade-up mt-7 max-w-xl text-sm leading-relaxed text-white/80 md:text-base"
             style={{ animationDelay: "240ms" }}
           >
-            Makelloses, langanhaltendes Make-up für Bräute, besondere Anlässe, Events und
-            Fotoshootings.
+            Flawless, long-lasting makeup for brides, special occasions, events and photoshoots.
           </p>
           <div
             className="fade-up mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
             style={{ animationDelay: "340ms" }}
           >
             <a
-              href="#kontakt"
+              href="#contact"
               className="bg-white px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-[#E9DED2]"
             >
-              Anfrage senden
+              Send an inquiry
             </a>
             <a
               href="#portfolio"
               className="border border-white/60 px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:bg-white/10"
             >
-              Portfolio entdecken
+              Explore the portfolio
             </a>
           </div>
           <p
-            className="fade-up mt-8 text-[0.7rem] uppercase tracking-[0.24em] text-white/60"
+            className="fade-up mt-8 text-[0.65rem] uppercase tracking-[0.2em] text-white/60 sm:text-[0.7rem] sm:tracking-[0.24em]"
             style={{ animationDelay: "440ms" }}
           >
-            Brautstyling • Events • Fotoshootings
+            Bridal makeup • Events • Photoshoots
           </p>
         </div>
       </div>
 
       <div className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex">
-        <span className="text-[0.6rem] uppercase tracking-[0.3em] text-white/60">Scrollen</span>
+        <span className="text-[0.6rem] uppercase tracking-[0.3em] text-white/60">Scroll</span>
         <span className="h-12 w-px bg-gradient-to-b from-white/70 to-transparent" />
       </div>
     </section>
@@ -334,28 +498,27 @@ function Hero() {
 
 function Statement() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-36">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+    <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-36">
+      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <p className="eyebrow">Beauty Statement</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl lg:text-[3.4rem]">
-            Schönheit, die sich nach dir anfühlt.
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl lg:text-[3.4rem]">
+            Beauty that feels like you.
           </h2>
           <p className="mt-8 max-w-xl text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Ein perfekter Make-up-Look soll deine natürliche Schönheit unterstreichen, deine
-            Persönlichkeit widerspiegeln und dir das Gefühl geben, dich rundum wohlzufühlen.
+            The perfect makeup look should enhance your natural beauty, reflect your personality and
+            make you feel completely at ease.
           </p>
           <p className="mt-6 max-w-xl text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Eine natürliche Ausstrahlung, elegante Definition und ein makelloses Finish – abgestimmt
-            auf deine individuellen Wünsche. Für langanhaltende Ergebnisse und ein Selbstbewusstsein,
-            das man sieht.
+            A natural glow, elegant definition and a flawless finish, tailored to your individual
+            wishes. For long-lasting results and confidence you can see.
           </p>
           <div className="mt-10 h-px w-24 bg-champagne" />
         </Reveal>
         <Reveal delay={120} className="relative">
           <img
             src={img6}
-            alt="Nahaufnahme eines eleganten Augen-Make-ups von Kateryna"
+            alt="Close-up of elegant eye makeup by Anita"
             loading="lazy"
             className="aspect-[4/5] w-full object-cover"
           />
@@ -367,36 +530,36 @@ function Statement() {
 
 function About() {
   return (
-    <section id="ueber" className="bg-secondary/60">
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-24 md:px-10 md:py-32 lg:grid-cols-2 lg:items-center lg:gap-24">
+    <section id="about" className="bg-secondary/60">
+      <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-20 md:px-10 md:py-32 lg:grid-cols-2 lg:items-center lg:gap-24">
         <Reveal>
           <img
-            src={img4}
-            alt="Porträt der Makeup Artist Kateryna in Melbourne"
+            src={artist}
+            alt="Portrait of makeup artist Anita in London"
             loading="lazy"
             className="aspect-[3/4] w-full object-cover"
           />
         </Reveal>
         <Reveal delay={120}>
-          <p className="eyebrow">Über Kateryna</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-            Make-up mit Liebe zum Detail.
+          <p className="eyebrow">About Anita</p>
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+            Makeup with attention to detail.
           </h2>
           <p className="mt-8 text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Kateryna ist professionelle Makeup Artist in Melbourne. Ihre Arbeit beginnt mit einer
-            individuellen Beratung: Sie hört zu, versteht deine persönlichen Wünsche und entwickelt
-            daraus einen Look, der zu dir und deinem Anlass passt.
+            Anita is a professional makeup artist in London. Her work begins with a personal
+            consultation: she listens, understands your wishes and creates a look that suits you and
+            your occasion.
           </p>
           <p className="mt-6 text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Präzises Arbeiten, ein hochwertiges Finish und eine moderne Beauty-Ästhetik prägen jeden
-            ihrer Looks. Das Ergebnis ist ein Make-up, das nicht überdeckt, sondern unterstreicht –
-            und dir Selbstbewusstsein für deinen Moment gibt.
+            Precise application, a high-quality finish and a modern beauty aesthetic define every look.
+            The result is makeup that enhances rather than conceals, giving you confidence for your
+            moment.
           </p>
           <a
-            href="#leistungen"
+            href="#services"
             className="mt-10 inline-block border-b border-foreground pb-1 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-opacity duration-300 hover:opacity-60"
           >
-            Mehr über Kateryna
+            More about Anita
           </a>
         </Reveal>
       </div>
@@ -407,56 +570,59 @@ function About() {
 const PRINCIPLES = [
   {
     no: "01",
-    title: "Makellos",
-    text: "Ein präzises, harmonisches Make-up mit einem gepflegten und eleganten Finish.",
+    title: "Flawless",
+    text: "Precise, harmonious makeup with a polished and elegant finish.",
   },
   {
     no: "02",
     title: "Modern",
-    text: "Zeitgemäße Beauty-Ästhetik, individuell auf deinen Stil abgestimmt.",
+    text: "Contemporary beauty aesthetics tailored to your personal style.",
   },
   {
     no: "03",
-    title: "Langanhaltend",
-    text: "Ein Look, der dich auch über viele Stunden hinweg zuverlässig begleitet.",
+    title: "Long-lasting",
+    text: "A look that stays with you beautifully for hours.",
   },
   {
     no: "04",
-    title: "Individuell",
-    text: "Dein Make-up wird auf deine Wünsche, deinen Anlass und deine Persönlichkeit abgestimmt.",
+    title: "Personal",
+    text: "Your makeup is tailored to your wishes, occasion and personality.",
   },
 ];
 
 function Signature() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
       <Reveal className="max-w-2xl">
         <p className="eyebrow">Signature Style</p>
-        <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-          Der Kateryna Look
+        <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+          The Anita Look
         </h2>
-        <p className="mt-5 font-serif text-2xl font-light italic text-champagne md:text-3xl">
-          Makellos. Modern. Langanhaltend.
+        <p className="mt-5 font-serif text-xl font-light italic text-champagne sm:text-2xl md:text-3xl">
+          Flawless. Modern. Long-lasting.
         </p>
       </Reveal>
 
-      <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      {/* 2 x 2 on phones, 4 across from md up */}
+      <div className="mt-14 grid grid-cols-2 gap-x-5 gap-y-10 md:mt-16 md:grid-cols-4 md:gap-10">
         {PRINCIPLES.map((p, i) => (
-          <Reveal key={p.no} delay={i * 90} className="border-t border-border pt-6">
+          <Reveal key={p.no} delay={i * 90} className="border-t border-border pt-5 md:pt-6">
             <span className="font-serif text-sm tracking-[0.2em] text-champagne">{p.no}</span>
-            <h3 className="mt-4 text-[0.75rem] uppercase tracking-[0.24em] text-foreground">
+            <h3 className="mt-3 text-[0.72rem] uppercase tracking-[0.22em] text-foreground md:mt-4 md:text-[0.75rem] md:tracking-[0.24em]">
               {p.title}
             </h3>
-            <p className="mt-4 text-sm leading-[1.85] text-muted-foreground">{p.text}</p>
+            <p className="mt-3 text-[0.82rem] leading-[1.75] text-muted-foreground md:mt-4 md:text-sm md:leading-[1.85]">
+              {p.text}
+            </p>
           </Reveal>
         ))}
       </div>
 
-      <div className="mt-20 grid gap-4 md:grid-cols-3">
+      <div className="mt-16 grid gap-4 sm:grid-cols-3 md:mt-20">
         {[
-          { src: img7, alt: "Editorial Beauty-Look mit softem Licht" },
-          { src: img10, alt: "Definiertes Augen-Make-up in Nahaufnahme" },
-          { src: img9, alt: "Braut-Make-up mit natürlichem Finish" },
+          { src: img3, alt: "Editorial beauty look with soft light" },
+          { src: img10, alt: "Defined eye makeup close-up" },
+          { src: img9, alt: "Bridal makeup with a natural finish" },
         ].map((s, i) => (
           <Reveal key={s.src} delay={i * 90} className="overflow-hidden">
             <img
@@ -474,44 +640,43 @@ function Signature() {
 
 const SERVICES = [
   {
-    src: img2,
-    title: "Brautstyling",
-    text: "Ein eleganter und individuell abgestimmter Bridal Look, der deine natürliche Schönheit unterstreicht und dich an deinem großen Tag strahlen lässt.",
-    href: "#brautstyling",
-    alt: "Brautstyling von Makeup Artist Kateryna",
+    src: img5,
+    title: "Bridal Makeup",
+    text: "An elegant, personalised bridal look that enhances your natural beauty and lets you shine on your special day.",
+    slug: "bridal",
+    alt: "Bridal makeup by makeup artist Anita",
   },
   {
-    src: img3,
-    title: "Events & besondere Anlässe",
-    text: "Ein stilvoller Make-up-Look für besondere Veranstaltungen, Feiern und Momente, in denen du dich rundum schön fühlen möchtest.",
-    href: "#kontakt",
-    alt: "Event Make-up für besondere Anlässe",
+    src: img4,
+    title: "Events & Special Occasions",
+    text: "A stylish makeup look for special events, celebrations and moments when you want to feel completely beautiful.",
+    slug: "events",
+    alt: "Event makeup for special occasions",
   },
   {
-    src: img7,
-    title: "Fotoshootings",
-    text: "Professionelles Make-up für Shootings und besondere Bildmomente – abgestimmt auf deinen Look und die gewünschte Ästhetik.",
-    href: "#kontakt",
-    alt: "Make-up für ein professionelles Fotoshooting",
+    src: bridal,
+    title: "THE “VIP” Experience",
+    text: "Luxury all-day bridal glam with a pre-styled wig, makeup trial, 10 hours of touch-ups, guest glam, and venue travel.",
+    slug: "vip",
+    alt: "THE “VIP” Experience",
   },
 ];
 
 function Services() {
   return (
-    <section id="leistungen" className="bg-secondary/60">
-      <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section id="services" className="bg-secondary/60">
+      <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">Leistungen</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-            Leistungen
+          <p className="eyebrow">Services</p>
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+            Services
           </h2>
           <p className="mt-6 text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Professionelles Make-up für besondere Momente, wichtige Anlässe und unvergessliche
-            Bilder.
+            Professional makeup for special moments, important occasions and unforgettable images.
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 md:mt-16 lg:grid-cols-3 lg:gap-8">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={i * 100} as="article" className="group">
               <div className="overflow-hidden">
@@ -524,12 +689,13 @@ function Services() {
               </div>
               <h3 className="mt-7 font-serif text-2xl font-light text-foreground">{s.title}</h3>
               <p className="mt-4 text-sm leading-[1.85] text-muted-foreground">{s.text}</p>
-              <a
-                href={s.href}
+              <Link
+                to="/services/$service"
+                params={{ service: s.slug }}
                 className="mt-6 inline-block border-b border-foreground/40 pb-1 text-[0.68rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:border-foreground"
               >
-                Mehr erfahren
-              </a>
+                Learn more
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -541,41 +707,41 @@ function Services() {
 const BRIDAL_STEPS = [
   {
     no: "01",
-    title: "Kennenlernen",
-    text: "Wir sprechen über deine Wünsche, deinen Stil und den Look, den du dir für deinen besonderen Tag vorstellst.",
+    title: "Getting to know you",
+    text: "We talk about your wishes, your style and the look you envision for your special day.",
   },
   {
     no: "02",
     title: "Styling",
-    text: "Dein Make-up wird individuell auf deine Gesichtszüge, deinen Stil und deinen Anlass abgestimmt.",
+    text: "Your makeup is tailored to your features, your style and your occasion.",
   },
   {
     no: "03",
-    title: "Dein Moment",
-    text: "Du fühlst dich wunderschön, selbstbewusst und ganz bei dir – bereit für deinen großen Moment.",
+    title: "Your moment",
+    text: "You feel beautiful, confident and completely yourself, ready for your big moment.",
   },
 ];
 
 function Bridal() {
   return (
-    <section id="brautstyling" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-      <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20">
+    <section id="bridal" className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
+      <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20">
         <Reveal>
           <img
-            src={img9}
-            alt="Braut mit makellosem, langanhaltendem Make-up von Kateryna"
+            src={bridal11}
+            alt="Bride with flawless, long-lasting makeup by Anita"
             loading="lazy"
             className="aspect-[4/5] w-full object-cover"
           />
         </Reveal>
         <Reveal delay={120}>
-          <p className="eyebrow">Bridal Experience</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-            Für deinen ganz besonderen Moment.
+          <p className="eyebrow">The Bridal Experience</p>
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+            For your most special moment.
           </h2>
           <p className="mt-8 text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Am Hochzeitstag soll sich alles richtig anfühlen. Dein Make-up soll deine Persönlichkeit
-            widerspiegeln, wunderschön aussehen und dich durch jeden besonderen Moment begleiten.
+            Your wedding day should feel completely right. Your makeup should reflect your personality,
+            look beautiful and carry you through every special moment.
           </p>
           <ol className="mt-12 space-y-8">
             {BRIDAL_STEPS.map((s) => (
@@ -590,12 +756,13 @@ function Bridal() {
               </li>
             ))}
           </ol>
-          <a
-            href="#kontakt"
-            className="mt-12 inline-block bg-foreground px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85"
+          <Link
+            to="/services/$service"
+            params={{ service: "bridal" }}
+            className="mt-12 inline-block w-full bg-foreground px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85 sm:w-auto"
           >
-            Brautstyling anfragen
-          </a>
+            Enquire about bridal makeup
+          </Link>
         </Reveal>
       </div>
     </section>
@@ -603,30 +770,30 @@ function Bridal() {
 }
 
 function Portfolio() {
-  const [cat, setCat] = useState<(typeof CATS)[number]>("Alle");
+  const [cat, setCat] = useState<(typeof CATS)[number]>("All");
   const [active, setActive] = useState<Shot | null>(null);
   const shots = useMemo(
-    () => (cat === "Alle" ? GALLERY : GALLERY.filter((g) => g.cat === cat)),
+    () => (cat === "All" ? GALLERY : GALLERY.filter((g) => g.cat === cat)),
     [cat],
   );
 
   return (
     <section id="portfolio" className="bg-secondary/60">
-      <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+      <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Portfolio</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
             Portfolio
           </h2>
-          <p className="mt-5 font-serif text-2xl font-light italic text-muted-foreground">
-            Einblicke in meine Looks.
+          <p className="mt-5 font-serif text-xl font-light italic text-muted-foreground sm:text-2xl">
+            A glimpse into my looks.
           </p>
         </Reveal>
 
         <div
           role="tablist"
-          aria-label="Portfolio Kategorien"
-          className="mt-12 flex flex-wrap gap-x-8 gap-y-4"
+          aria-label="Portfolio categories"
+          className="mt-10 flex flex-wrap gap-x-7 gap-y-4 md:mt-12 md:gap-x-8"
         >
           {CATS.map((c) => (
             <button
@@ -653,7 +820,7 @@ function Portfolio() {
                 type="button"
                 onClick={() => setActive(s)}
                 className="group block w-full overflow-hidden"
-                aria-label={`${s.alt} – Bild vergrößern`}
+                aria-label={`${s.alt} - Enlarge image`}
               >
                 <img
                   src={s.src}
@@ -667,14 +834,14 @@ function Portfolio() {
           ))}
         </div>
 
-        <div className="-mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:hidden">
+        <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:hidden">
           {shots.map((s) => (
             <button
               key={s.src}
               type="button"
               onClick={() => setActive(s)}
               className="w-[78%] flex-none snap-center"
-              aria-label={`${s.alt} – Bild vergrößern`}
+              aria-label={`${s.alt} - Enlarge image`}
             >
               <img
                 src={s.src}
@@ -688,8 +855,8 @@ function Portfolio() {
       </div>
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-w-3xl border-0 bg-background p-2 sm:p-3">
-          <DialogTitle className="sr-only">{active?.alt ?? "Portfolio Bild"}</DialogTitle>
+        <DialogContent className="max-h-[92svh] max-w-3xl overflow-auto border-0 bg-background p-2 sm:p-3">
+          <DialogTitle className="sr-only">{active?.alt ?? "Portfolio image"}</DialogTitle>
           {active && (
             <img src={active.src} alt={active.alt} className="h-auto w-full object-contain" />
           )}
@@ -703,27 +870,27 @@ function Featured() {
   return (
     <section className="relative isolate overflow-hidden">
       <img
-        src={img8}
-        alt="Makelloser Beauty-Look von Kateryna in Nahaufnahme"
+        src={bridal1}
+        alt="Flawless beauty look by Anita in close-up"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-[#28221F]/60" />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-28 md:px-10 md:py-44">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-44">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow text-white/70">Der Kateryna Look</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-white md:text-5xl lg:text-[3.4rem]">
-            Makellose Schönheit, modern interpretiert.
+          <p className="eyebrow text-white/70">The Anita Look</p>
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.4rem]">
+            Flawless beauty, interpreted with a modern eye.
           </h2>
           <p className="mt-8 max-w-xl text-sm leading-[1.9] text-white/80 md:text-base">
-            Ein harmonisches Zusammenspiel aus Präzision, Eleganz und Persönlichkeit – für einen
-            Look, der sich ganz nach dir anfühlt.
+            A harmonious blend of precision, elegance and personality, for a look that feels entirely
+            like you.
           </p>
           <a
             href="#portfolio"
             className="mt-10 inline-block border border-white/60 px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:bg-white hover:text-foreground"
           >
-            Portfolio ansehen
+            View the portfolio
           </a>
         </Reveal>
       </div>
@@ -733,34 +900,36 @@ function Featured() {
 
 const WHY = [
   {
-    title: "Persönlich",
-    text: "Deine Wünsche und dein persönlicher Stil stehen im Mittelpunkt.",
+    title: "Personal",
+    text: "Your wishes and personal style are at the heart of every look.",
   },
-  { title: "Makellos", text: "Ein präzises Finish mit besonderem Augenmerk auf Details." },
-  { title: "Langanhaltend", text: "Ein Beauty-Look, der dich auch über viele Stunden begleitet." },
+  { title: "Flawless", text: "A precise finish with special attention to detail." },
+  { title: "Long-lasting", text: "A beauty look that stays with you for hours." },
   {
-    title: "Individuell",
-    text: "Jeder Look wird auf dich, deinen Anlass und deine gewünschte Ästhetik abgestimmt.",
+    title: "Tailored",
+    text: "Every look is created for you, your occasion and your desired aesthetic.",
   },
 ];
 
 function Why() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
       <Reveal className="max-w-2xl">
-        <p className="eyebrow">Warum Kateryna</p>
-        <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-          Warum Kateryna?
+        <p className="eyebrow">Why Anita</p>
+        <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+          Why Anita?
         </h2>
       </Reveal>
-      <dl className="mt-16 grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
+      <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:mt-16 sm:gap-x-10 sm:gap-y-10 md:gap-x-12 md:gap-y-12 lg:grid-cols-4">
         {WHY.map((w, i) => (
           <Reveal key={w.title} delay={i * 90}>
-            <span aria-hidden className="block h-px w-10 bg-champagne" />
-            <dt className="mt-6 text-[0.72rem] uppercase tracking-[0.24em] text-foreground">
+            <span aria-hidden className="block h-px w-8 bg-champagne sm:w-10" />
+            <dt className="mt-4 text-[0.68rem] uppercase tracking-[0.16em] text-foreground sm:mt-6 sm:text-[0.72rem] sm:tracking-[0.24em]">
               {w.title}
             </dt>
-            <dd className="mt-4 text-sm leading-[1.85] text-muted-foreground">{w.text}</dd>
+            <dd className="mt-3 text-[0.8rem] leading-[1.7] text-muted-foreground sm:mt-4 sm:text-sm sm:leading-[1.85]">
+              {w.text}
+            </dd>
           </Reveal>
         ))}
       </dl>
@@ -769,76 +938,159 @@ function Why() {
 }
 
 const TESTIMONIALS = [
-  { name: "Platzhalter – Name der Kundin", occasion: "Anlass", rating: 5 },
-  { name: "Platzhalter – Name der Kundin", occasion: "Anlass", rating: 5 },
-  { name: "Platzhalter – Name der Kundin", occasion: "Anlass", rating: 5 },
+  {
+    name: "Lerato",
+    quote:
+      "Anita is a bomb ass MUA who knows her job inside out and makes you feel like a queen! From start to finish your professionalism has been exceptional! Really enjoyed my trial and the positive vibes we had throughout the journey! Defo 5 star rating. Would highly recommend! I look forward to the next event to get dolled up for!!!",
+    rating: 5,
+  },
+  {
+    name: "Carlene",
+    quote:
+      "I loved working with Anita. Her vibe is pure and effortless. Her work is amazing. Very professional and cutesy. 5 stars for you babygirl.",
+    rating: 5,
+  },
+  {
+    name: "Denise",
+    quote:
+      "Thank you so much for making my day so special, Anita. I've never had so many compliments in all my life! 🥰",
+    rating: 5,
+  },
+  {
+    name: "Happy client",
+    quote:
+      "Thanks soo much Anita!! Honestly! My makeup looked so flawless and it stayed for the entire night without me looking oily or anything. You're my makeup artist now 😂💯",
+    rating: 5,
+  },
 ];
 
+type Testimonial = (typeof TESTIMONIALS)[number];
+
+function TestimonialCard({ t, onOpen }: { t: Testimonial; onOpen: (t: Testimonial) => void }) {
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const [truncated, setTruncated] = useState(false);
+
+  useEffect(() => {
+    const check = () => {
+      const el = textRef.current;
+      if (el) setTruncated(el.scrollHeight > el.clientHeight + 1);
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  return (
+    <div className="flex h-full flex-col border border-border bg-background p-7 md:p-8">
+      <p
+        className="text-sm tracking-[0.3em] text-champagne"
+        aria-label={`${t.rating} out of 5 stars`}
+      >
+        {"★".repeat(t.rating)}
+      </p>
+
+      {/* Fixed height so every card is the same size; long reviews are clipped */}
+      <p
+        ref={textRef}
+        className="mt-6 line-clamp-6 h-[9.5rem] font-serif text-lg font-light italic leading-relaxed text-foreground md:text-[1.05rem] xl:text-lg"
+      >
+        “{t.quote}”
+      </p>
+
+      <div className="mt-3 h-6">
+        {truncated && (
+          <button
+            type="button"
+            onClick={() => onOpen(t)}
+            className="border-b border-foreground/40 pb-0.5 text-[0.68rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:border-foreground"
+          >
+            Show more
+          </button>
+        )}
+      </div>
+
+      <p className="mt-auto border-t border-border pt-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground">
+        {t.name}
+      </p>
+    </div>
+  );
+}
+
 function Testimonials() {
+  const [active, setActive] = useState<Testimonial | null>(null);
+
   return (
     <section className="bg-secondary/60">
-      <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+      <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Testimonials</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-            Was Kundinnen sagen
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+            What clients say
           </h2>
-          <p className="mt-6 text-sm leading-[1.9] text-muted-foreground">
-            Hier werden echte Kundenstimmen eingefügt. Die folgenden Felder sind Platzhalter und
-            können jederzeit durch echte Bewertungen ersetzt werden.
+          <p className="mt-6 text-sm leading-[1.9] text-muted-foreground md:text-base">
+            Kind words from brides and clients Anita has worked with.
           </p>
         </Reveal>
 
-        <ul className="-mx-5 mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
+        <ul className="-mx-5 mt-12 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:mt-14 md:grid md:snap-none md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 xl:grid-cols-4">
           {TESTIMONIALS.map((t, i) => (
             <Reveal
-              key={i}
+              key={t.name + i}
               as="li"
               delay={i * 90}
-              className="w-[82%] flex-none snap-center border border-border bg-background p-8 md:w-auto"
+              className="w-[84%] flex-none snap-center sm:w-[60%] md:w-auto"
             >
-              <p className="text-[0.7rem] uppercase tracking-[0.24em] text-champagne">
-                {"★".repeat(t.rating)}
-              </p>
-              <p className="mt-6 font-serif text-xl font-light italic leading-relaxed text-foreground">
-                „Platzhalter für eine echte Kundenstimme. Hier kann das Zitat deiner Kundin
-                eingefügt werden.“
-              </p>
-              <p className="mt-8 text-[0.7rem] uppercase tracking-[0.22em] text-foreground">
-                {t.name}
-              </p>
-              <p className="mt-2 text-xs text-muted-foreground">{t.occasion}</p>
+              <TestimonialCard t={t} onOpen={setActive} />
             </Reveal>
           ))}
         </ul>
       </div>
+
+      <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
+        <DialogContent className="max-h-[90svh] max-w-xl overflow-y-auto border-0 bg-background p-8 md:p-10">
+          <DialogTitle className="sr-only">Review by {active?.name}</DialogTitle>
+          {active && (
+            <div>
+              <p className="text-sm tracking-[0.3em] text-champagne" aria-hidden>
+                {"★".repeat(active.rating)}
+              </p>
+              <p className="mt-6 font-serif text-xl font-light italic leading-relaxed text-foreground">
+                “{active.quote}”
+              </p>
+              <p className="mt-8 border-t border-border pt-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground">
+                {active.name}
+              </p>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
 
 const INSTA = [
-  { src: img2, alt: "Brautstyling Look auf Instagram" },
-  { src: img5, alt: "Beauty-Porträt auf Instagram" },
-  { src: img6, alt: "Augen-Make-up Detail auf Instagram" },
-  { src: img4, alt: "Event Make-up Look auf Instagram" },
-  { src: img10, alt: "Beauty Detail auf Instagram" },
-  { src: img7, alt: "Fotoshooting Look auf Instagram" },
+  { src: img2, alt: "Bridal makeup look on Instagram" },
+  { src: img5, alt: "Beauty portrait on Instagram" },
+  { src: img6, alt: "Eye makeup detail on Instagram" },
+  { src: img4, alt: "Event makeup look on Instagram" },
+  { src: img10, alt: "Beauty detail on Instagram" },
+  { src: img7, alt: "Photoshoot look on Instagram" },
 ];
 
 function Instagram() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
       <Reveal className="max-w-2xl">
         <p className="eyebrow">Instagram</p>
-        <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-          Mehr von Kateryna
+        <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+          More from Anita
         </h2>
         <p className="mt-6 text-sm leading-[1.9] text-muted-foreground md:text-base">
-          Weitere Looks, Beauty-Inspirationen und Einblicke findest du auf Instagram.
+          Discover more looks, beauty inspiration and behind-the-scenes moments on Instagram.
         </p>
       </Reveal>
 
-      <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+      <div className="mt-12 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-3 md:gap-4">
         {INSTA.map((s, i) => (
           <Reveal key={s.alt} delay={(i % 3) * 80} className="overflow-hidden">
             <a href={INSTAGRAM} target="_blank" rel="noreferrer noopener" className="block">
@@ -859,7 +1111,7 @@ function Instagram() {
         rel="noreferrer noopener"
         className="mt-12 inline-block border-b border-foreground pb-1 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-opacity duration-300 hover:opacity-60"
       >
-        Instagram entdecken
+        Discover Instagram
       </a>
     </section>
   );
@@ -867,54 +1119,54 @@ function Instagram() {
 
 const FAQS = [
   {
-    q: "Welche Leistungen bietet Kateryna an?",
-    a: "Kateryna bietet professionelles Make-up für Brautstyling, Events, besondere Anlässe und Fotoshootings an.",
+    q: "What services does Anita offer?",
+    a: "Anita offers professional makeup for bridal makeup, events, special occasions and photoshoots.",
   },
   {
-    q: "Wie kann ich einen Termin anfragen?",
-    a: "Nutze das Anfrageformular oder kontaktiere Kateryna direkt über Instagram.",
+    q: "How can I request an appointment?",
+    a: "Use the enquiry form, message Anita on WhatsApp or contact her directly through Instagram.",
   },
   {
-    q: "Kann ich meine eigenen Wünsche und Inspirationen mitbringen?",
-    a: "Ja. Deine persönlichen Vorstellungen und Inspirationen können bei der Planung deines Looks berücksichtigt werden.",
+    q: "Can I bring my own ideas and inspiration?",
+    a: "Yes. Your personal ideas and inspiration can be considered when planning your look.",
   },
   {
-    q: "Ist das Make-up langanhaltend?",
-    a: "Kateryna legt besonderen Wert auf ein makelloses und langanhaltendes Finish.",
+    q: "Is the makeup long-lasting?",
+    a: "Anita places special emphasis on a flawless and long-lasting finish.",
   },
   {
-    q: "Wo befindet sich Katerynas Service?",
-    a: "Kateryna ist als Makeup Artist in Melbourne tätig. Für genaue Informationen zur Verfügbarkeit und zum Einsatzort bitte direkt anfragen.",
+    q: "Where is Anita's service available?",
+    a: "Anita works as a makeup artist in London. Please enquire directly for availability and location details.",
   },
   {
-    q: "Wie hoch sind die Preise?",
-    a: "Die Preise hängen von der gewünschten Leistung und dem Anlass ab. Für individuelle Informationen bitte eine Anfrage senden.",
+    q: "How much do your services cost?",
+    a: "Prices depend on the service and occasion. Please send an enquiry for personalised information.",
   },
   {
-    q: "Bietest du Brautstyling an?",
-    a: "Ja. Brautstyling gehört zu den angebotenen Leistungen.",
+    q: "Do you offer bridal makeup?",
+    a: "Yes. Bridal makeup is one of the services offered.",
   },
   {
-    q: "Wie kann ich Kateryna buchen?",
-    a: "Sende eine Anfrage über das Kontaktformular oder kontaktiere Kateryna direkt über Instagram.",
+    q: "How can I book Anita?",
+    a: "Send an enquiry through the contact form, message Anita on WhatsApp or contact her directly through Instagram.",
   },
 ];
 
 function Faq() {
   return (
     <section id="faq" className="bg-secondary/60">
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-24 md:px-10 md:py-32 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-20 md:px-10 md:py-32 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <Reveal>
           <p className="eyebrow">FAQ</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-            Häufige Fragen
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+            Frequently asked questions
           </h2>
         </Reveal>
         <Reveal delay={120}>
           <Accordion type="single" collapsible className="w-full">
             {FAQS.map((f, i) => (
               <AccordionItem key={f.q} value={`item-${i}`} className="border-b border-border">
-                <AccordionTrigger className="py-6 text-left font-serif text-xl font-light text-foreground hover:no-underline">
+                <AccordionTrigger className="py-5 text-left font-serif text-lg font-light text-foreground hover:no-underline md:py-6 md:text-xl">
                   {f.q}
                 </AccordionTrigger>
                 <AccordionContent className="pb-6 text-sm leading-[1.9] text-muted-foreground">
@@ -930,36 +1182,36 @@ function Faq() {
 }
 
 const inputClass =
-  "w-full border-0 border-b border-input bg-transparent px-0 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-foreground focus-visible:ring-0";
+  "w-full border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-foreground focus-visible:ring-0 sm:text-sm";
 
 function Contact() {
   const [sent, setSent] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <section id="kontakt" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <section id="contact" className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
+      <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <img
             src={img5}
-            alt="Beauty-Porträt mit makellosem Make-up von Kateryna"
+            alt="Beauty portrait with flawless makeup by Anita"
             loading="lazy"
             className="aspect-[4/5] w-full object-cover"
           />
         </Reveal>
         <Reveal delay={120}>
-          <p className="eyebrow">Anfrage</p>
-          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.1] text-foreground md:text-5xl">
-            Lass uns deinen Look planen.
+          <p className="eyebrow">Enquiry</p>
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
+            Let's plan your look.
           </h2>
           <p className="mt-6 text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Du hast einen besonderen Anlass, planst deine Hochzeit oder möchtest einen
-            professionellen Look für ein Fotoshooting? Erzähle mir mehr über deine Wünsche.
+            Do you have a special occasion, are you planning your wedding or do you want a
+            professional look for a photoshoot? Tell me more about your wishes.
           </p>
 
           <form
             ref={formRef}
-            className="mt-12 space-y-8"
+            className="mt-10 space-y-8 md:mt-12"
             onSubmit={(e) => {
               e.preventDefault();
               setSent(true);
@@ -975,7 +1227,7 @@ function Contact() {
               </div>
               <div>
                 <label htmlFor="email" className="eyebrow block">
-                  E-Mail
+                  Email
                 </label>
                 <input
                   id="email"
@@ -987,43 +1239,43 @@ function Contact() {
               </div>
               <div>
                 <label htmlFor="phone" className="eyebrow block">
-                  Telefon
+                  Phone
                 </label>
                 <input id="phone" name="phone" type="tel" className={cn(inputClass, "mt-2")} />
               </div>
               <div>
                 <label htmlFor="date" className="eyebrow block">
-                  Datum
+                  Date
                 </label>
                 <input id="date" name="date" type="date" className={cn(inputClass, "mt-2")} />
               </div>
               <div>
                 <label htmlFor="occasion" className="eyebrow block">
-                  Anlass
+                  Occasion
                 </label>
                 <select
                   id="occasion"
                   name="occasion"
-                  defaultValue="Brautstyling"
+                  defaultValue="Bridal makeup"
                   className={cn(inputClass, "mt-2")}
                 >
-                  <option>Brautstyling</option>
+                  <option>Bridal makeup</option>
                   <option>Event</option>
-                  <option>Besonderer Anlass</option>
-                  <option>Fotoshooting</option>
-                  <option>Sonstiges</option>
+                  <option>Special occasion</option>
+                  <option>Photoshoot</option>
+                  <option>Other</option>
                 </select>
               </div>
               <div>
                 <label htmlFor="location" className="eyebrow block">
-                  Veranstaltungsort
+                  Location
                 </label>
                 <input id="location" name="location" className={cn(inputClass, "mt-2")} />
               </div>
             </div>
             <div>
               <label htmlFor="message" className="eyebrow block">
-                Erzähl mir mehr über deine Wünsche
+                Tell me more about your wishes
               </label>
               <textarea id="message" name="message" rows={4} className={cn(inputClass, "mt-2")} />
             </div>
@@ -1032,23 +1284,33 @@ function Contact() {
               type="submit"
               className="w-full bg-foreground px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85 sm:w-auto"
             >
-              Anfrage senden
+              Send an enquiry
             </button>
 
             <p aria-live="polite" className="text-sm text-muted-foreground">
-              {sent && "Vielen Dank für deine Anfrage. Ich melde mich so bald wie möglich bei dir."}
+              {sent && "Thank you for your enquiry. I will get back to you as soon as possible."}
             </p>
           </form>
         </Reveal>
       </div>
 
-      <Reveal className="mt-24 border-t border-border pt-12">
-        <p className="eyebrow">Direkter Kontakt</p>
-        <h2 className="mt-5 font-serif text-3xl font-light text-foreground md:text-4xl">Kontakt</h2>
+      <Reveal className="mt-20 border-t border-border pt-12 md:mt-24">
+        <p className="eyebrow">Direct contact</p>
+        <h2 className="mt-5 font-serif text-3xl font-light text-foreground md:text-4xl">Contact</h2>
         <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <address className="not-italic">
-            <p className="text-sm text-foreground">Makeup Artist Kateryna</p>
-            <p className="mt-2 text-sm text-muted-foreground">Melbourne</p>
+            <p className="text-sm text-foreground">Makeup Artist Anita</p>
+            <p className="mt-2 text-sm text-muted-foreground">London</p>
+            <p className="mt-2 text-sm">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="border-b border-foreground/40 pb-0.5 text-foreground transition-colors hover:border-foreground"
+              >
+                WhatsApp — message Anita
+              </a>
+            </p>
             <p className="mt-2 text-sm">
               <a
                 href={INSTAGRAM}
@@ -1056,15 +1318,15 @@ function Contact() {
                 rel="noreferrer noopener"
                 className="border-b border-foreground/40 pb-0.5 text-foreground transition-colors hover:border-foreground"
               >
-                Instagram — @makeupartistkateryna
+                Instagram — @makeupartistAnita
               </a>
             </p>
           </address>
           <a
-            href="#kontakt"
+            href="#contact"
             className="inline-block self-start border border-foreground px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground md:self-auto"
           >
-            Anfrage senden
+            Send an enquiry
           </a>
         </div>
       </Reveal>
@@ -1076,33 +1338,33 @@ function FinalCta() {
   return (
     <section className="relative isolate overflow-hidden">
       <img
-        src={img10}
-        alt="Eleganter Beauty-Look von Makeup Artist Kateryna"
+        src={image11}
+        alt="Elegant beauty look by makeup artist Anita"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-[#28221F]/72" />
-      <div className="relative mx-auto max-w-3xl px-5 py-28 text-center md:px-10 md:py-40">
+      <div className="relative mx-auto max-w-3xl px-5 py-24 text-center md:px-10 md:py-40">
         <Reveal>
-          <h2 className="font-serif text-4xl font-light leading-[1.1] text-white md:text-5xl lg:text-[3.5rem]">
-            Bereit für deinen perfekten Look?
+          <h2 className="font-serif text-3xl font-light leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+            Ready for your perfect look?
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-sm leading-[1.9] text-white/80 md:text-base">
-            Lass uns gemeinsam einen Make-up-Look kreieren, in dem du dich wunderschön,
-            selbstbewusst und ganz wie du selbst fühlst.
+            Let's create a makeup look together that makes you feel beautiful, confident and entirely
+            yourself.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="#kontakt"
+              href="#contact"
               className="w-full bg-white px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-[#E9DED2] sm:w-auto"
             >
-              Anfrage senden
+              Send an enquiry
             </a>
             <a
               href="#portfolio"
               className="w-full border border-white/60 px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:bg-white/10 sm:w-auto"
             >
-              Portfolio ansehen
+              View the portfolio
             </a>
           </div>
         </Reveal>
@@ -1114,22 +1376,20 @@ function FinalCta() {
 function Footer() {
   return (
     <footer className="bg-[#28221F] text-[#E9DED2]">
-      <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10">
-        <div className="grid gap-12 md:grid-cols-3">
+      <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-10 md:py-20">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3">
           <div>
-            <p className="font-serif text-xl tracking-[0.32em] text-white">KATERYNA</p>
+            <img src={logo} alt="Anita Makeup Artist logo" className="h-12 w-auto object-contain brightness-0 invert" />
             <p className="mt-4 text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">
-              Makeup Artist • Melbourne
+              Makeup Artist • London
             </p>
             <p className="mt-6 font-serif text-lg font-light italic text-[#D5C2AE]">
-              Makellos • Modern • Individuell
+              Flawless • Modern • Tailored
             </p>
           </div>
 
           <nav aria-label="Footer Navigation">
-            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">
-              Navigation
-            </p>
+            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">Navigation</p>
             <ul className="mt-5 space-y-3">
               {NAV.map((n) => (
                 <li key={n.href}>
@@ -1145,8 +1405,18 @@ function Footer() {
           </nav>
 
           <div>
-            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">Kontakt</p>
+            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">Contact</p>
             <ul className="mt-5 space-y-3 text-sm text-[#E9DED2]/85">
+              <li>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="transition-opacity hover:opacity-60"
+                >
+                  WhatsApp — message Anita
+                </a>
+              </li>
               <li>
                 <a
                   href={INSTAGRAM}
@@ -1154,25 +1424,25 @@ function Footer() {
                   rel="noreferrer noopener"
                   className="transition-opacity hover:opacity-60"
                 >
-                  Instagram — @makeupartistkateryna
+                  Instagram — @makeupartistAnita
                 </a>
               </li>
-              <li>Melbourne</li>
+              <li>London</li>
             </ul>
             <ul className="mt-8 space-y-3 text-sm text-[#E9DED2]/60">
               <li>
-                <a href="#kontakt" className="transition-opacity hover:opacity-100">
-                  Datenschutz
+                <a href="#contact" className="transition-opacity hover:opacity-100">
+                  Privacy policy
                 </a>
               </li>
               <li>
-                <a href="#kontakt" className="transition-opacity hover:opacity-100">
-                  Impressum
+                <a href="#contact" className="transition-opacity hover:opacity-100">
+                  Legal notice
                 </a>
               </li>
               <li>
-                <a href="#kontakt" className="transition-opacity hover:opacity-100">
-                  Cookie-Richtlinie
+                <a href="#contact" className="transition-opacity hover:opacity-100">
+                  Cookie policy
                 </a>
               </li>
             </ul>
@@ -1180,36 +1450,53 @@ function Footer() {
         </div>
 
         <p className="mt-16 border-t border-[#E9DED2]/15 pt-8 text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/50">
-          © Kateryna
+          © Anita
         </p>
       </div>
     </footer>
   );
 }
 
-function MobileBar() {
+function WhatsAppButton() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur md:hidden">
-      <a
-        href="#kontakt"
-        className="block bg-foreground py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground"
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with Anita on WhatsApp"
+      className="fixed bottom-5 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform duration-300 hover:scale-110 active:scale-95 md:bottom-8 md:right-8 md:h-16 md:w-16"
+    >
+      <span
+        aria-hidden
+        className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-60"
+      />
+      <span
+        aria-hidden
+        className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-40 [animation-delay:600ms]"
+      />
+      <svg
+        viewBox="0 0 32 32"
+        className="relative h-7 w-7 md:h-8 md:w-8"
+        fill="currentColor"
+        aria-hidden
       >
-        Anfrage senden
-      </a>
-    </div>
+        <path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.29.6 4.52 1.74 6.49L3 29l6.68-1.72A12.94 12.94 0 0 0 16.003 29C23.17 29 29 23.17 29 16S23.17 3 16.003 3zm0 23.7a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-3.96 1.02 1.06-3.86-.25-.4A10.7 10.7 0 1 1 16.003 26.7zm5.87-8c-.32-.16-1.9-.94-2.2-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.71-.98-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.68.77.24 1.46.21 2.01.13.61-.09 1.9-.78 2.16-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37z" />
+      </svg>
+    </a>
   );
 }
 
 function Home() {
   return (
-    <div className="bg-background">
+    <div className="overflow-x-clip bg-background">
       <Header />
-      <main className="pb-20 md:pb-0">
+      <main>
         <Hero />
         <Statement />
         <About />
         <Signature />
         <Services />
+        <Reels />
         <Bridal />
         <Portfolio />
         <Featured />
@@ -1221,7 +1508,7 @@ function Home() {
         <FinalCta />
       </main>
       <Footer />
-      <MobileBar />
+      <WhatsAppButton />
     </div>
   );
 }
