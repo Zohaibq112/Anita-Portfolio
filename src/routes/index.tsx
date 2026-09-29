@@ -98,7 +98,7 @@ const NAV = [
 const INSTAGRAM = "https://instagram.com/makeupartistAnita";
 
 // Digits only: country code + number, no "+", spaces or leading 0. Example: 447123456789
-const WHATSAPP_NUMBER = "+44 7460 285854";
+const WHATSAPP_NUMBER = "447000000000";
 const WHATSAPP_MESSAGE = "Hello Anita, I'd like to enquire about your makeup services.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE,
@@ -590,6 +590,13 @@ const PRINCIPLES = [
   },
 ];
 
+const SIGNATURE_IMAGES = [
+  { src: img2, alt: "Flawless bridal makeup with a polished finish by Anita" },
+  { src: img3, alt: "Modern evening makeup look by Anita" },
+  { src: img9, alt: "Long-lasting bridal makeup by Anita" },
+  { src: img10, alt: "Personal makeup look tailored to the client by Anita" },
+];
+
 function Signature() {
   return (
     <section className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
@@ -603,34 +610,31 @@ function Signature() {
         </p>
       </Reveal>
 
-      {/* 2 x 2 on phones, 4 across from md up */}
-      <div className="mt-14 grid grid-cols-2 gap-x-5 gap-y-10 md:mt-16 md:grid-cols-4 md:gap-10">
+      {/* Staggered image cards: 2 per row on phones, 4 across from md up */}
+      <div className="mt-14 grid grid-cols-2 items-start gap-x-4 gap-y-10 md:mt-16 md:grid-cols-4 md:gap-x-6 lg:gap-x-8">
         {PRINCIPLES.map((p, i) => (
-          <Reveal key={p.no} delay={i * 90} className="border-t border-border pt-5 md:pt-6">
-            <span className="font-serif text-sm tracking-[0.2em] text-champagne">{p.no}</span>
-            <h3 className="mt-3 text-[0.72rem] uppercase tracking-[0.22em] text-foreground md:mt-4 md:text-[0.75rem] md:tracking-[0.24em]">
+          <Reveal
+            key={p.no}
+            delay={i * 90}
+            className={cn(i % 2 === 1 && "mt-10 md:mt-20")}
+          >
+            <div className="overflow-hidden">
+              <img
+                src={SIGNATURE_IMAGES[i].src}
+                alt={SIGNATURE_IMAGES[i].alt}
+                loading="lazy"
+                className="aspect-[3/4] w-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-[1.04]"
+              />
+            </div>
+            <span className="mt-5 block font-serif text-sm italic tracking-[0.15em] text-champagne">
+              {p.no}
+            </span>
+            <h3 className="mt-2 font-serif text-base uppercase tracking-[0.18em] text-foreground sm:text-lg md:text-xl md:tracking-[0.22em]">
               {p.title}
             </h3>
-            <p className="mt-3 text-[0.82rem] leading-[1.75] text-muted-foreground md:mt-4 md:text-sm md:leading-[1.85]">
+            <p className="mt-3 text-[0.8rem] leading-[1.75] text-muted-foreground md:text-sm md:leading-[1.85]">
               {p.text}
             </p>
-          </Reveal>
-        ))}
-      </div>
-
-      <div className="mt-16 grid gap-4 sm:grid-cols-3 md:mt-20">
-        {[
-          { src: img3, alt: "Editorial beauty look with soft light" },
-          { src: img10, alt: "Defined eye makeup close-up" },
-          { src: img9, alt: "Bridal makeup with a natural finish" },
-        ].map((s, i) => (
-          <Reveal key={s.src} delay={i * 90} className="overflow-hidden">
-            <img
-              src={s.src}
-              alt={s.alt}
-              loading="lazy"
-              className="aspect-[3/4] w-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-[1.04]"
-            />
           </Reveal>
         ))}
       </div>
