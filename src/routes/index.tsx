@@ -98,7 +98,7 @@ const NAV = [
 const INSTAGRAM = "https://instagram.com/gems.beauty.london";
 
 // Digits only: country code + number, no "+", spaces or leading 0. Example: 447123456789
-const WHATSAPP_NUMBER = "447000000000";
+const WHATSAPP_NUMBER = "447123456789";
 const WHATSAPP_MESSAGE = "Hello Anita, I'd like to enquire about your makeup services.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE,
