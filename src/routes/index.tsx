@@ -69,7 +69,7 @@ export const Route = createFileRoute("/")({
             addressLocality: "London",
             addressCountry: "GB",
           },
-          sameAs: ["https://instagram.com/makeupartistAnita"],
+          sameAs: ["https://instagram.com/gems.beauty.london"],
           makesOffer: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bridal makeup" } },
             {
@@ -95,7 +95,7 @@ const NAV = [
   { label: "Contact", href: "#contact" },
 ];
 
-const INSTAGRAM = "https://instagram.com/makeupartistAnita";
+const INSTAGRAM = "https://instagram.com/gems.beauty.london";
 
 // Digits only: country code + number, no "+", spaces or leading 0. Example: 447123456789
 const WHATSAPP_NUMBER = "447000000000";
@@ -287,19 +287,19 @@ const REELS_DATA = [
     id: 1,
     videoUrl: "/reel1.mp4",
     url: "https://www.instagram.com/reel/REEL_ID_1/",
-    handle: "@makeupartistAnita",
+    handle: "@gems.beauty.london",
   },
   {
     id: 2,
     videoUrl: "/reel2.mp4",
     url: "https://www.instagram.com/reel/REEL_ID_2/",
-    handle: "@makeupartistAnita",
+    handle: "@gems.beauty.london",
   },
   {
     id: 3,
     videoUrl: "/reel3.mp4",
     url: "https://www.instagram.com/reel/REEL_ID_3/",
-    handle: "@makeupartistAnita",
+    handle: "@gems.beauty.london",
   },
 ];
 
@@ -379,9 +379,13 @@ function Reels() {
         </p>
       </Reveal>
 
-      <div className="mx-auto mt-12 grid grid-cols-3 gap-2 sm:gap-4 md:mt-14 md:gap-6">
+      <div className="-mx-5 mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-4 md:mx-auto md:mt-14 md:grid md:snap-none md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
         {REELS_DATA.map((reel, index) => (
-          <Reveal key={reel.id} delay={index * 90}>
+          <Reveal
+            key={reel.id}
+            delay={index * 90}
+            className="w-[72%] flex-none snap-center sm:w-[45%] md:w-auto"
+          >
             <a
               href={reel.url}
               target="_blank"
@@ -400,8 +404,8 @@ function Reels() {
                 preload="metadata"
               />
 
-              <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-[#28221F]/80 via-[#28221F]/10 to-transparent p-2 opacity-90 transition-opacity duration-300 group-hover:opacity-100 sm:p-4 md:p-6">
-                <span className="hidden text-center text-[0.65rem] font-medium uppercase tracking-[0.22em] text-white/90 sm:inline md:text-[0.7rem]">
+              <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-[#28221F]/80 via-[#28221F]/10 to-transparent p-5 opacity-90 transition-opacity duration-300 group-hover:opacity-100 md:p-6">
+                <span className="text-center text-[0.65rem] font-medium uppercase tracking-[0.22em] text-white/90 md:text-[0.7rem]">
                   {reel.handle}
                 </span>
               </div>
@@ -1186,7 +1190,7 @@ function Faq() {
 }
 
 const inputClass =
-  "w-full border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-foreground focus-visible:ring-0 sm:text-sm";
+  "block min-h-[3rem] w-full min-w-0 rounded-none border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-foreground focus-visible:ring-0 sm:text-sm";
 
 function Contact() {
   const [sent, setSent] = useState(false);
@@ -1194,16 +1198,16 @@ function Contact() {
 
   return (
     <section id="contact" className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
-      <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
-        <Reveal>
+      <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-20">
+        <Reveal className="min-w-0 lg:sticky lg:top-28">
           <img
             src={img5}
             alt="Beauty portrait with flawless makeup by Anita"
             loading="lazy"
-            className="aspect-[4/5] w-full object-cover"
+            className="aspect-[4/3] w-full object-cover object-top sm:aspect-[16/10] lg:aspect-[4/5]"
           />
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal delay={120} className="min-w-0">
           <p className="eyebrow">Enquiry</p>
           <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
             Let's plan your look.
@@ -1222,7 +1226,7 @@ function Contact() {
               formRef.current?.reset();
             }}
           >
-            <div className="grid gap-8 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className="eyebrow block">
                   Name
@@ -1302,7 +1306,7 @@ function Contact() {
         <p className="eyebrow">Direct contact</p>
         <h2 className="mt-5 font-serif text-3xl font-light text-foreground md:text-4xl">Contact</h2>
         <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <address className="not-italic">
+          <address className="min-w-0 break-words not-italic">
             <p className="text-sm text-foreground">Makeup Artist Anita</p>
             <p className="mt-2 text-sm text-muted-foreground">London</p>
             <p className="mt-2 text-sm">
@@ -1322,13 +1326,13 @@ function Contact() {
                 rel="noreferrer noopener"
                 className="border-b border-foreground/40 pb-0.5 text-foreground transition-colors hover:border-foreground"
               >
-                Instagram — @makeupartistAnita
+                Instagram — @gems.beauty.london
               </a>
             </p>
           </address>
           <a
             href="#contact"
-            className="inline-block self-start border border-foreground px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground md:self-auto"
+            className="block w-full border border-foreground px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground md:inline-block md:w-auto md:self-auto"
           >
             Send an enquiry
           </a>
@@ -1428,7 +1432,7 @@ function Footer() {
                   rel="noreferrer noopener"
                   className="transition-opacity hover:opacity-60"
                 >
-                  Instagram — @makeupartistAnita
+                  Instagram — @gems.beauty.london
                 </a>
               </li>
               <li>London</li>

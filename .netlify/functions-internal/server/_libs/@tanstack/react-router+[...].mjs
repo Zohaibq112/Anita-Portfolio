@@ -5306,7 +5306,7 @@ var require_react_dom_server_legacy_node_production = /* @__PURE__ */ __commonJS
 	var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
 	function getIteratorFn(maybeIterable) {
 		if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
-		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@@iterator"];
+		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@iterator"];
 		return "function" === typeof maybeIterable ? maybeIterable : null;
 	}
 	var REACT_OPTIMISTIC_KEY = Symbol.for("react.optimistic_key");
@@ -9404,7 +9404,7 @@ var require_react_dom_server_node_production = /* @__PURE__ */ __commonJSMin(((e
 	var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
 	function getIteratorFn(maybeIterable) {
 		if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
-		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@@iterator"];
+		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@iterator"];
 		return "function" === typeof maybeIterable ? maybeIterable : null;
 	}
 	var REACT_OPTIMISTIC_KEY = Symbol.for("react.optimistic_key");

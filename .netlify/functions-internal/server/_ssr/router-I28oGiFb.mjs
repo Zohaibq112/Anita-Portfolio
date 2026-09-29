@@ -211,7 +211,7 @@ var rootRouteChildren = {
 						addressLocality: "London",
 						addressCountry: "GB"
 					},
-					sameAs: ["https://instagram.com/makeupartistAnita"],
+					sameAs: ["https://instagram.com/gems.beauty.london"],
 					makesOffer: [
 						{
 							"@type": "Offer",

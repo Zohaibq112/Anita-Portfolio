@@ -118,8 +118,8 @@ var NAV = [
 		href: "#contact"
 	}
 ];
-var INSTAGRAM = "https://instagram.com/makeupartistAnita";
-var WHATSAPP_URL = `https://wa.me/+44 7460 285854?text=${encodeURIComponent("Hello Anita, I'd like to enquire about your makeup services.")}`;
+var INSTAGRAM = "https://instagram.com/@gems.beauty.london";
+var WHATSAPP_URL = `https://wa.me/+447460285854?text=${encodeURIComponent("Hello Anita, I'd like to enquire about your makeup services.")}`;
 var GALLERY = [
 	{
 		src: image2_default,
@@ -257,19 +257,19 @@ var REELS_DATA = [
 		id: 1,
 		videoUrl: "/reel1.mp4",
 		url: "https://www.instagram.com/reel/REEL_ID_1/",
-		handle: "@makeupartistAnita"
+		handle: "@gems.beauty.london"
 	},
 	{
 		id: 2,
 		videoUrl: "/reel2.mp4",
 		url: "https://www.instagram.com/reel/REEL_ID_2/",
-		handle: "@makeupartistAnita"
+		handle: "@gems.beauty.london"
 	},
 	{
 		id: 3,
 		videoUrl: "/reel3.mp4",
 		url: "https://www.instagram.com/reel/REEL_ID_3/",
-		handle: "@makeupartistAnita"
+		handle: "@gems.beauty.london"
 	}
 ];
 function Reels() {
@@ -1403,7 +1403,7 @@ function Contact() {
 									target: "_blank",
 									rel: "noreferrer noopener",
 									className: "border-b border-foreground/40 pb-0.5 text-foreground transition-colors hover:border-foreground",
-									children: "Instagram — @makeupartistAnita"
+									children: "Instagram — @gems.beauty.london"
 								})
 							})
 						]
@@ -1513,7 +1513,7 @@ function Footer() {
 									target: "_blank",
 									rel: "noreferrer noopener",
 									className: "transition-opacity hover:opacity-60",
-									children: "Instagram — @makeupartistAnita"
+									children: "Instagram — @gems.beauty.london"
 								}) }),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "London" })
 							]

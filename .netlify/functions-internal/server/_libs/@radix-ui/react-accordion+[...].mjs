@@ -27,7 +27,7 @@ var require_react_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
 	function getIteratorFn(maybeIterable) {
 		if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
-		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@@iterator"];
+		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@iterator"];
 		return "function" === typeof maybeIterable ? maybeIterable : null;
 	}
 	var ReactNoopUpdateQueue = {
