@@ -9,8 +9,6 @@ import {
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
-import bridal from "@/assets/bridal.png";
-import hero from "@/assets/image.webp";
 import img2 from "@/assets/image2.png";
 import img3 from "@/assets/image3.png";
 import img4 from "@/assets/image4.png";
@@ -24,8 +22,12 @@ import artist from "@/assets/artist.png";
 import image11 from "@/assets/image11.png";
 import bridal1 from "@/assets/bridal1.png";
 import bridal11 from "@/assets/bridal11.png";
-import bridal1212 from "@/assets/bridal1212.png";
 import logo from "@/assets/Logo.png";
+import bridalimg from "@/assets/bridalimg.png";
+import bridalimg2 from "@/assets/bridalimg2.png";
+import bridal1212 from "@/assets/bridal1212.png";
+import bridal12 from "@/assets/bridal12.png";
+import bridal121 from "@/assets/bridal121.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -76,7 +78,6 @@ export const Route = createFileRoute("/")({
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: "Events & special occasions" },
             },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Photoshoots" } },
           ],
         }),
       },
@@ -97,8 +98,8 @@ const NAV = [
 
 const INSTAGRAM = "https://instagram.com/gems.beauty.london";
 
-// Digits only: country code + number, no "+", spaces or leading 0. Example: 447460 285854
-const WHATSAPP_NUMBER = "447460 285854";
+// Digits only: country code + number, no "+", spaces or leading 0. Example: 447460285854
+const WHATSAPP_NUMBER = "447460285854";
 const WHATSAPP_MESSAGE = "Hello Anita, I'd like to enquire about your makeup services.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE,
@@ -210,7 +211,7 @@ function Header() {
                   href={n.href}
                   className={cn(
                     "text-[0.7rem] uppercase tracking-[0.2em] transition-opacity duration-300 hover:opacity-60",
-                    scrolled ? "text-foreground" : "text-white",
+                    scrolled ? "text-foreground" : "text-champagne",
                   )}
                 >
                   {n.label}
@@ -227,7 +228,7 @@ function Header() {
               "hidden border px-6 py-3 text-[0.7rem] uppercase tracking-[0.2em] transition-colors duration-300 md:inline-block",
               scrolled
                 ? "border-foreground text-foreground hover:bg-foreground hover:text-primary-foreground"
-                : "border-white/70 text-white hover:bg-white hover:text-foreground",
+                : "border-gold/70 text-champagne hover:bg-champagne hover:text-foreground",
             )}
           >
             Send an inquiry
@@ -239,7 +240,7 @@ function Header() {
             aria-label={open ? "Close menu" : "Open menu"}
             className={cn(
               "flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden",
-              scrolled || open ? "text-foreground" : "text-white",
+              scrolled || open ? "text-foreground" : "text-champagne",
             )}
           >
             <span
@@ -390,7 +391,7 @@ function Reels() {
               href={reel.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-[9/16] w-full overflow-hidden bg-[#28221F] shadow-lg transition-all duration-500 hover:-translate-y-1.5"
+              className="group relative block aspect-[9/16] w-full overflow-hidden border border-gold-line bg-wine shadow-lg transition-all duration-500 hover:-translate-y-1.5"
             >
               <video
                 ref={(el) => {
@@ -404,8 +405,8 @@ function Reels() {
                 preload="metadata"
               />
 
-              <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-[#28221F]/80 via-[#28221F]/10 to-transparent p-5 opacity-90 transition-opacity duration-300 group-hover:opacity-100 md:p-6">
-                <span className="text-center text-[0.65rem] font-medium uppercase tracking-[0.22em] text-white/90 md:text-[0.7rem]">
+              <div className="absolute inset-0 flex items-end justify-center p-5 opacity-90 transition-opacity duration-300 group-hover:opacity-100 md:p-6">
+                <span className="text-center text-[0.65rem] font-medium uppercase tracking-[0.22em] text-champagne [text-shadow:0_1px_8px_rgb(0_0_0/0.6)] md:text-[0.7rem]">
                   {reel.handle}
                 </span>
               </div>
@@ -418,7 +419,7 @@ function Reels() {
         <button
           onClick={toggleSound}
           type="button"
-          className="border border-foreground/20 bg-transparent px-5 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:bg-foreground/5 active:scale-95"
+          className="border border-primary/40 bg-transparent px-5 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:bg-primary/10 active:scale-95"
         >
           {isMuted ? "Unmute reels" : "Mute reels"}
         </button>
@@ -427,7 +428,7 @@ function Reels() {
           href={INSTAGRAM}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-foreground px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85"
+          className="bg-primary px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85"
         >
           View on Instagram
         </a>
@@ -447,13 +448,12 @@ function Hero() {
         muted
         playsInline
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#28221F]/85 via-[#28221F]/35 to-[#28221F]/40" />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1400px] flex-col justify-end px-5 pb-28 pt-32 md:px-10 md:pb-24">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1400px] flex-col justify-end [text-shadow:0_1px_14px_rgb(0_0_0/0.5)] px-5 pb-28 pt-32 md:px-10 md:pb-24">
         <div className="max-w-3xl">
-          <p className="fade-up eyebrow text-white/75">Makeup Artist • London</p>
+          <p className="fade-up eyebrow !text-gold">Makeup Artist • London</p>
           <h1
-            className="fade-up mt-6 font-serif text-[2.4rem] font-light leading-[1.05] text-white sm:text-6xl lg:text-7xl"
+            className="fade-up mt-6 font-serif text-[2.4rem] font-light leading-[1.05] text-champagne sm:text-6xl lg:text-7xl"
             style={{ animationDelay: "120ms" }}
           >
             Your beauty.
@@ -461,7 +461,7 @@ function Hero() {
             Perfectly brought to life.
           </h1>
           <p
-            className="fade-up mt-7 max-w-xl text-sm leading-relaxed text-white/80 md:text-base"
+            className="fade-up mt-7 max-w-xl text-sm leading-relaxed text-champagne/85 md:text-base"
             style={{ animationDelay: "240ms" }}
           >
             Flawless, long-lasting makeup for brides, special occasions, events and photoshoots.
@@ -472,19 +472,19 @@ function Hero() {
           >
             <a
               href="#contact"
-              className="bg-white px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-[#E9DED2]"
+              className="bg-gold px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-wine transition-colors duration-300 hover:bg-champagne"
             >
               Send an inquiry
             </a>
             <a
               href="#portfolio"
-              className="border border-white/60 px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:bg-white/10"
+              className="border border-gold/70 px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-champagne transition-colors duration-300 hover:bg-champagne/10"
             >
               Explore the portfolio
             </a>
           </div>
           <p
-            className="fade-up mt-8 text-[0.65rem] uppercase tracking-[0.2em] text-white/60 sm:text-[0.7rem] sm:tracking-[0.24em]"
+            className="fade-up mt-8 text-[0.65rem] uppercase tracking-[0.2em] text-champagne/65 sm:text-[0.7rem] sm:tracking-[0.24em]"
             style={{ animationDelay: "440ms" }}
           >
             Bridal makeup • Events • Photoshoots
@@ -493,8 +493,8 @@ function Hero() {
       </div>
 
       <div className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex">
-        <span className="text-[0.6rem] uppercase tracking-[0.3em] text-white/60">Scroll</span>
-        <span className="h-12 w-px bg-gradient-to-b from-white/70 to-transparent" />
+        <span className="text-[0.6rem] uppercase tracking-[0.3em] text-champagne/65">Scroll</span>
+        <span className="h-12 w-px bg-gradient-to-b from-gold/80 to-transparent" />
       </div>
     </section>
   );
@@ -517,14 +517,14 @@ function Statement() {
             A natural glow, elegant definition and a flawless finish, tailored to your individual
             wishes. For long-lasting results and confidence you can see.
           </p>
-          <div className="mt-10 h-px w-24 bg-champagne" />
+          <div className="mt-10 h-px w-24 bg-primary/40" />
         </Reveal>
         <Reveal delay={120} className="relative">
           <img
-            src={img6}
+            src={bridal1}
             alt="Close-up of elegant eye makeup by Anita"
             loading="lazy"
-            className="aspect-[4/5] w-full object-cover"
+            className="aspect-[4/5] w-full border border-gold-line object-cover"
           />
         </Reveal>
       </div>
@@ -541,7 +541,7 @@ function About() {
             src={artist}
             alt="Portrait of makeup artist Anita in London"
             loading="lazy"
-            className="aspect-[3/4] w-full object-cover"
+            className="aspect-[3/4] w-full border border-gold-line object-cover"
           />
         </Reveal>
         <Reveal delay={120}>
@@ -559,12 +559,12 @@ function About() {
             The result is makeup that enhances rather than conceals, giving you confidence for your
             moment.
           </p>
-          <a
-            href="#services"
-            className="mt-10 inline-block border-b border-foreground pb-1 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-opacity duration-300 hover:opacity-60"
+          <Link
+            to= "/About"
+            className="mt-10 inline-block border-b border-primary pb-1 text-[0.7rem] uppercase tracking-[0.22em] text-primary transition-opacity duration-300 hover:opacity-60"
           >
             More about Anita
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>
@@ -595,10 +595,10 @@ const PRINCIPLES = [
 ];
 
 const SIGNATURE_IMAGES = [
-  { src: img2, alt: "Flawless bridal makeup with a polished finish by Anita" },
-  { src: img3, alt: "Modern evening makeup look by Anita" },
-  { src: img9, alt: "Long-lasting bridal makeup by Anita" },
-  { src: img10, alt: "Personal makeup look tailored to the client by Anita" },
+  { src: bridal121, alt: "Flawless bridal makeup with a polished finish by Anita" },
+  { src: bridal12, alt: "Modern evening makeup look by Anita" },
+  { src: bridal1212, alt: "Long-lasting bridal makeup by Anita" },
+  { src: img2, alt: "Personal makeup look tailored to the client by Anita" },
 ];
 
 function Signature() {
@@ -609,7 +609,7 @@ function Signature() {
         <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
           The Anita Look
         </h2>
-        <p className="mt-5 font-serif text-xl font-light italic text-champagne sm:text-2xl md:text-3xl">
+        <p className="mt-5 font-serif text-xl font-light italic text-primary sm:text-2xl md:text-3xl">
           Flawless. Modern. Long-lasting.
         </p>
       </Reveal>
@@ -622,7 +622,7 @@ function Signature() {
             delay={i * 90}
             className={cn(i % 2 === 1 && "mt-10 md:mt-20")}
           >
-            <div className="overflow-hidden">
+            <div className="overflow-hidden border border-gold-line">
               <img
                 src={SIGNATURE_IMAGES[i].src}
                 alt={SIGNATURE_IMAGES[i].alt}
@@ -630,7 +630,7 @@ function Signature() {
                 className="aspect-[3/4] w-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-[1.04]"
               />
             </div>
-            <span className="mt-5 block font-serif text-sm italic tracking-[0.15em] text-champagne">
+            <span className="mt-5 block font-serif text-sm italic tracking-[0.15em] text-primary">
               {p.no}
             </span>
             <h3 className="mt-2 font-serif text-base uppercase tracking-[0.18em] text-foreground sm:text-lg md:text-xl md:tracking-[0.22em]">
@@ -648,7 +648,7 @@ function Signature() {
 
 const SERVICES = [
   {
-    src: img5,
+    src: bridalimg,
     title: "Bridal Makeup",
     text: "An elegant, personalised bridal look that enhances your natural beauty and lets you shine on your special day.",
     slug: "bridal",
@@ -661,46 +661,54 @@ const SERVICES = [
     slug: "events",
     alt: "Event makeup for special occasions",
   },
-  {
-    src: bridal,
-    title: "THE “VIP” Experience",
-    text: "Luxury all-day bridal glam with a pre-styled wig, makeup trial, 10 hours of touch-ups, guest glam, and venue travel.",
-    slug: "vip",
-    alt: "THE “VIP” Experience",
-  },
 ];
 
+// Note: not exported. Exporting non-route components from a TanStack route
+// file breaks route code-splitting and Fast Refresh.
 function Services() {
   return (
     <section id="services" className="bg-secondary/60">
       <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-32">
-        <Reveal className="max-w-2xl">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Services</p>
           <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl">
             Services
           </h2>
-          <p className="mt-6 text-sm leading-[1.9] text-muted-foreground md:text-base">
+          <p className="mx-auto mt-6 text-sm leading-[1.9] text-muted-foreground md:text-base">
             Professional makeup for special moments, important occasions and unforgettable images.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 md:mt-16 lg:grid-cols-3 lg:gap-8">
+        <div className="mx-auto mt-14 grid max-w-5xl gap-12 sm:grid-cols-2 md:mt-16 lg:gap-14">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.title} delay={i * 100} as="article" className="group">
-              <div className="overflow-hidden">
+            <Reveal
+              key={s.slug}
+              delay={i * 100}
+              as="article"
+              className="group flex flex-col"
+            >
+              <Link
+                to="/services/$service"
+                params={{ service: s.slug }}
+                aria-label={`${s.title} - learn more`}
+                className="block overflow-hidden border border-gold-line"
+              >
                 <img
                   src={s.src}
                   alt={s.alt}
                   loading="lazy"
                   className="aspect-[3/4] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
                 />
-              </div>
-              <h3 className="mt-7 font-serif text-2xl font-light text-foreground">{s.title}</h3>
-              <p className="mt-4 text-sm leading-[1.85] text-muted-foreground">{s.text}</p>
+              </Link>
+              <span className="mt-6 block font-serif text-sm italic tracking-[0.15em] text-primary">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-2 font-serif text-2xl font-light text-foreground">{s.title}</h3>
+              <p className="mt-4 flex-1 text-sm leading-[1.85] text-muted-foreground">{s.text}</p>
               <Link
                 to="/services/$service"
                 params={{ service: s.slug }}
-                className="mt-6 inline-block border-b border-foreground/40 pb-1 text-[0.68rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:border-foreground"
+                className="mt-6 inline-block self-start border-b border-primary/50 pb-1 text-[0.68rem] uppercase tracking-[0.22em] text-primary transition-colors duration-300 hover:border-primary"
               >
                 Learn more
               </Link>
@@ -739,7 +747,7 @@ function Bridal() {
             src={bridal11}
             alt="Bride with flawless, long-lasting makeup by Anita"
             loading="lazy"
-            className="aspect-[4/5] w-full object-cover"
+            className="aspect-[4/5] w-full border border-gold-line object-cover"
           />
         </Reveal>
         <Reveal delay={120}>
@@ -755,7 +763,7 @@ function Bridal() {
             {BRIDAL_STEPS.map((s) => (
               <li key={s.no} className="border-t border-border pt-6">
                 <div className="flex items-baseline gap-5">
-                  <span className="font-serif text-sm tracking-[0.2em] text-champagne">{s.no}</span>
+                  <span className="font-serif text-sm tracking-[0.2em] text-primary">{s.no}</span>
                   <h3 className="text-[0.72rem] uppercase tracking-[0.24em] text-foreground">
                     {s.title}
                   </h3>
@@ -767,7 +775,7 @@ function Bridal() {
           <Link
             to="/services/$service"
             params={{ service: "bridal" }}
-            className="mt-12 inline-block w-full bg-foreground px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85 sm:w-auto"
+            className="mt-12 inline-block w-full bg-primary px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85 sm:w-auto"
           >
             Enquire about bridal makeup
           </Link>
@@ -812,7 +820,7 @@ function Portfolio() {
               className={cn(
                 "pb-1 text-[0.7rem] uppercase tracking-[0.22em] transition-colors duration-300",
                 cat === c
-                  ? "border-b border-foreground text-foreground"
+                  ? "border-b border-primary text-primary"
                   : "border-b border-transparent text-muted-foreground hover:text-foreground",
               )}
             >
@@ -827,7 +835,7 @@ function Portfolio() {
               <button
                 type="button"
                 onClick={() => setActive(s)}
-                className="group block w-full overflow-hidden"
+                className="group block w-full overflow-hidden border border-gold-line"
                 aria-label={`${s.alt} - Enlarge image`}
               >
                 <img
@@ -848,7 +856,7 @@ function Portfolio() {
               key={s.src}
               type="button"
               onClick={() => setActive(s)}
-              className="w-[78%] flex-none snap-center"
+              className="w-[78%] flex-none snap-center border border-gold-line"
               aria-label={`${s.alt} - Enlarge image`}
             >
               <img
@@ -863,10 +871,14 @@ function Portfolio() {
       </div>
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-h-[92svh] max-w-3xl overflow-auto border-0 bg-background p-2 sm:p-3">
+        <DialogContent className="max-h-[92svh] max-w-3xl overflow-auto border border-gold-line bg-background p-2 sm:p-3">
           <DialogTitle className="sr-only">{active?.alt ?? "Portfolio image"}</DialogTitle>
           {active && (
-            <img src={active.src} alt={active.alt} className="h-auto w-full object-contain" />
+            <img
+              src={active.src}
+              alt={active.alt}
+              className="h-auto w-full border border-gold-line object-contain"
+            />
           )}
         </DialogContent>
       </Dialog>
@@ -876,27 +888,26 @@ function Portfolio() {
 
 function Featured() {
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden border-y border-gold-line">
       <img
         src={bridal1}
         alt="Flawless beauty look by Anita in close-up"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-[#28221F]/60" />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-44">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-24 [text-shadow:0_1px_14px_rgb(0_0_0/0.5)] md:px-10 md:py-44">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow text-white/70">The Anita Look</p>
-          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.4rem]">
+          <p className="eyebrow !text-gold">The Anita Look</p>
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-champagne sm:text-4xl md:text-5xl lg:text-[3.4rem]">
             Flawless beauty, interpreted with a modern eye.
           </h2>
-          <p className="mt-8 max-w-xl text-sm leading-[1.9] text-white/80 md:text-base">
+          <p className="mt-8 max-w-xl text-sm leading-[1.9] text-champagne/85 md:text-base">
             A harmonious blend of precision, elegance and personality, for a look that feels entirely
             like you.
           </p>
           <a
             href="#portfolio"
-            className="mt-10 inline-block border border-white/60 px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:bg-white hover:text-foreground"
+            className="mt-10 inline-block border border-gold/70 px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-champagne transition-colors duration-300 hover:bg-champagne hover:text-foreground"
           >
             View the portfolio
           </a>
@@ -931,7 +942,7 @@ function Why() {
       <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:mt-16 sm:gap-x-10 sm:gap-y-10 md:gap-x-12 md:gap-y-12 lg:grid-cols-4">
         {WHY.map((w, i) => (
           <Reveal key={w.title} delay={i * 90}>
-            <span aria-hidden className="block h-px w-8 bg-champagne sm:w-10" />
+            <span aria-hidden className="block h-px w-8 bg-primary/50 sm:w-10" />
             <dt className="mt-4 text-[0.68rem] uppercase tracking-[0.16em] text-foreground sm:mt-6 sm:text-[0.72rem] sm:tracking-[0.24em]">
               {w.title}
             </dt>
@@ -989,9 +1000,9 @@ function TestimonialCard({ t, onOpen }: { t: Testimonial; onOpen: (t: Testimonia
   }, []);
 
   return (
-    <div className="flex h-full flex-col border border-border bg-background p-7 md:p-8">
+    <div className="flex h-full flex-col border border-border bg-card p-7 md:p-8">
       <p
-        className="text-sm tracking-[0.3em] text-champagne"
+        className="text-sm tracking-[0.3em] text-primary"
         aria-label={`${t.rating} out of 5 stars`}
       >
         {"★".repeat(t.rating)}
@@ -1010,7 +1021,7 @@ function TestimonialCard({ t, onOpen }: { t: Testimonial; onOpen: (t: Testimonia
           <button
             type="button"
             onClick={() => onOpen(t)}
-            className="border-b border-foreground/40 pb-0.5 text-[0.68rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:border-foreground"
+            className="border-b border-primary/50 pb-0.5 text-[0.68rem] uppercase tracking-[0.22em] text-primary transition-colors duration-300 hover:border-primary"
           >
             Show more
           </button>
@@ -1055,11 +1066,11 @@ function Testimonials() {
       </div>
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-h-[90svh] max-w-xl overflow-y-auto border-0 bg-background p-8 md:p-10">
+        <DialogContent className="max-h-[90svh] max-w-xl overflow-y-auto border border-gold-line bg-background p-8 md:p-10">
           <DialogTitle className="sr-only">Review by {active?.name}</DialogTitle>
           {active && (
             <div>
-              <p className="text-sm tracking-[0.3em] text-champagne" aria-hidden>
+              <p className="text-sm tracking-[0.3em] text-primary" aria-hidden>
                 {"★".repeat(active.rating)}
               </p>
               <p className="mt-6 font-serif text-xl font-light italic leading-relaxed text-foreground">
@@ -1101,7 +1112,12 @@ function Instagram() {
       <div className="mt-12 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-3 md:gap-4">
         {INSTA.map((s, i) => (
           <Reveal key={s.alt} delay={(i % 3) * 80} className="overflow-hidden">
-            <a href={INSTAGRAM} target="_blank" rel="noreferrer noopener" className="block">
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="block overflow-hidden border border-gold-line"
+            >
               <img
                 src={s.src}
                 alt={s.alt}
@@ -1117,7 +1133,7 @@ function Instagram() {
         href={INSTAGRAM}
         target="_blank"
         rel="noreferrer noopener"
-        className="mt-12 inline-block border-b border-foreground pb-1 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-opacity duration-300 hover:opacity-60"
+        className="mt-12 inline-block border-b border-primary pb-1 text-[0.7rem] uppercase tracking-[0.22em] text-primary transition-opacity duration-300 hover:opacity-60"
       >
         Discover Instagram
       </a>
@@ -1190,7 +1206,7 @@ function Faq() {
 }
 
 const inputClass =
-  "block min-h-[3rem] w-full min-w-0 rounded-none border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-foreground focus-visible:ring-0 sm:text-sm";
+  "block min-h-[3rem] w-full min-w-0 rounded-none border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus-visible:ring-0 sm:text-sm";
 
 function Contact() {
   const [sent, setSent] = useState(false);
@@ -1204,7 +1220,7 @@ function Contact() {
             src={img5}
             alt="Beauty portrait with flawless makeup by Anita"
             loading="lazy"
-            className="aspect-[4/3] w-full object-cover object-top sm:aspect-[16/10] lg:aspect-[4/5]"
+            className="aspect-[4/3] w-full border border-gold-line object-cover object-top sm:aspect-[16/10] lg:aspect-[4/5]"
           />
         </Reveal>
         <Reveal delay={120} className="min-w-0">
@@ -1290,7 +1306,7 @@ function Contact() {
 
             <button
               type="submit"
-              className="w-full bg-foreground px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85 sm:w-auto"
+              className="w-full bg-primary px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-85 sm:w-auto"
             >
               Send an enquiry
             </button>
@@ -1314,7 +1330,7 @@ function Contact() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="border-b border-foreground/40 pb-0.5 text-foreground transition-colors hover:border-foreground"
+                className="border-b border-primary/50 pb-0.5 text-primary transition-colors hover:border-primary"
               >
                 WhatsApp — message Anita
               </a>
@@ -1324,7 +1340,7 @@ function Contact() {
                 href={INSTAGRAM}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="border-b border-foreground/40 pb-0.5 text-foreground transition-colors hover:border-foreground"
+                className="border-b border-primary/50 pb-0.5 text-primary transition-colors hover:border-primary"
               >
                 Instagram — @gems.beauty.london
               </a>
@@ -1332,7 +1348,7 @@ function Contact() {
           </address>
           <a
             href="#contact"
-            className="block w-full border border-foreground px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-primary-foreground md:inline-block md:w-auto md:self-auto"
+            className="block w-full border border-primary px-8 py-4 text-center text-[0.7rem] uppercase tracking-[0.22em] text-primary transition-colors duration-300 hover:bg-primary hover:text-primary-foreground md:inline-block md:w-auto md:self-auto"
           >
             Send an enquiry
           </a>
@@ -1344,33 +1360,32 @@ function Contact() {
 
 function FinalCta() {
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden border-y border-gold-line">
       <img
         src={image11}
         alt="Elegant beauty look by makeup artist Anita"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-[#28221F]/72" />
-      <div className="relative mx-auto max-w-3xl px-5 py-24 text-center md:px-10 md:py-40">
+      <div className="relative mx-auto max-w-3xl px-5 py-24 text-center [text-shadow:0_1px_14px_rgb(0_0_0/0.5)] md:px-10 md:py-40">
         <Reveal>
-          <h2 className="font-serif text-3xl font-light leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+          <h2 className="font-serif text-3xl font-light leading-[1.1] text-champagne sm:text-4xl md:text-5xl lg:text-[3.5rem]">
             Ready for your perfect look?
           </h2>
-          <p className="mx-auto mt-8 max-w-xl text-sm leading-[1.9] text-white/80 md:text-base">
+          <p className="mx-auto mt-8 max-w-xl text-sm leading-[1.9] text-champagne/85 md:text-base">
             Let's create a makeup look together that makes you feel beautiful, confident and entirely
             yourself.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="#contact"
-              className="w-full bg-white px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-foreground transition-colors duration-300 hover:bg-[#E9DED2] sm:w-auto"
+              className="w-full bg-gold px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-wine transition-colors duration-300 hover:bg-champagne sm:w-auto"
             >
               Send an enquiry
             </a>
             <a
               href="#portfolio"
-              className="w-full border border-white/60 px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:bg-white/10 sm:w-auto"
+              className="w-full border border-gold/70 px-8 py-4 text-[0.7rem] uppercase tracking-[0.22em] text-champagne transition-colors duration-300 hover:bg-champagne/10 sm:w-auto"
             >
               View the portfolio
             </a>
@@ -1383,27 +1398,27 @@ function FinalCta() {
 
 function Footer() {
   return (
-    <footer className="bg-[#28221F] text-[#E9DED2]">
+    <footer className="bg-wine text-champagne">
       <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-10 md:py-20">
         <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3">
           <div>
             <img src={logo} alt="Anita Makeup Artist logo" className="h-12 w-auto object-contain brightness-0 invert" />
-            <p className="mt-4 text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">
+            <p className="mt-4 text-[0.65rem] uppercase tracking-[0.26em] text-champagne/60">
               Makeup Artist • London
             </p>
-            <p className="mt-6 font-serif text-lg font-light italic text-[#D5C2AE]">
+            <p className="mt-6 font-serif text-lg font-light italic text-gold">
               Flawless • Modern • Tailored
             </p>
           </div>
 
           <nav aria-label="Footer Navigation">
-            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">Navigation</p>
+            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-champagne/60">Navigation</p>
             <ul className="mt-5 space-y-3">
               {NAV.map((n) => (
                 <li key={n.href}>
                   <a
                     href={n.href}
-                    className="text-sm text-[#E9DED2]/85 transition-opacity hover:opacity-60"
+                    className="text-sm text-champagne/85 transition-opacity hover:opacity-60"
                   >
                     {n.label}
                   </a>
@@ -1413,8 +1428,8 @@ function Footer() {
           </nav>
 
           <div>
-            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/60">Contact</p>
-            <ul className="mt-5 space-y-3 text-sm text-[#E9DED2]/85">
+            <p className="text-[0.65rem] uppercase tracking-[0.26em] text-champagne/60">Contact</p>
+            <ul className="mt-5 space-y-3 text-sm text-champagne/85">
               <li>
                 <a
                   href={WHATSAPP_URL}
@@ -1437,7 +1452,7 @@ function Footer() {
               </li>
               <li>London</li>
             </ul>
-            <ul className="mt-8 space-y-3 text-sm text-[#E9DED2]/60">
+            <ul className="mt-8 space-y-3 text-sm text-champagne/60">
               <li>
                 <a href="#contact" className="transition-opacity hover:opacity-100">
                   Privacy policy
@@ -1457,7 +1472,7 @@ function Footer() {
           </div>
         </div>
 
-        <p className="mt-16 border-t border-[#E9DED2]/15 pt-8 text-[0.65rem] uppercase tracking-[0.26em] text-[#E9DED2]/50">
+        <p className="mt-16 border-t border-gold/20 pt-8 text-[0.65rem] uppercase tracking-[0.26em] text-champagne/50">
           © Anita
         </p>
       </div>
