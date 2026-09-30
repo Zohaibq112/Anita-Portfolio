@@ -574,19 +574,19 @@ const REELS_DATA = [
   {
     id: 1,
     videoUrl: "/reel1.mp4",
-    url: "https://www.instagram.com/reel/REEL_ID_1/",
+    url: "https://www.instagram.com/gems.beauty.london/",
     handle: "@gems.beauty.london",
   },
   {
     id: 2,
     videoUrl: "/reel2.mp4",
-    url: "https://www.instagram.com/reel/REEL_ID_2/",
+    url: "https://www.instagram.com/gems.beauty.london/",
     handle: "@gems.beauty.london",
   },
   {
     id: 3,
     videoUrl: "/reel3.mp4",
-    url: "https://www.instagram.com/reel/REEL_ID_3/",
+    url: "https://www.instagram.com/gems.beauty.london/",
     handle: "@gems.beauty.london",
   },
 ];
