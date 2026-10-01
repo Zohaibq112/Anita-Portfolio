@@ -9,24 +9,27 @@ import {
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
-import img2 from "@/assets/image2.png";
-import img3 from "@/assets/image3.png";
 import img4 from "@/assets/image4.png";
-import img5 from "@/assets/image5.png";
 import img6 from "@/assets/image6.png";
-import img7 from "@/assets/image7.png";
 import img8 from "@/assets/image8.png";
-import img9 from "@/assets/image9.png";
-import img10 from "@/assets/image10.png";
 import artist from "@/assets/artist.png";
+import artist1 from "@/assets/artist1.png";
 import image11 from "@/assets/image11.png";
+import bridal from "@/assets/bridal.png";
 import bridal1 from "@/assets/bridal1.png";
 import bridal11 from "@/assets/bridal11.png";
-import logo from "@/assets/Logo.png";
-import bridalimg from "@/assets/bridalimg.png";
-import bridal1212 from "@/assets/bridal1212.png";
 import bridal12 from "@/assets/bridal12.png";
 import bridal121 from "@/assets/bridal121.png";
+import bridal1212 from "@/assets/bridal1212.png";
+import logo from "@/assets/Logo.png";
+import newimg1 from "@/assets/newimage1.png";
+import newimg2 from "@/assets/newimage2.png";
+import newimg3 from "@/assets/newimage3.png";
+import newbridal from "@/assets/newimagebridal.png";
+import certificate from "@/assets/certificate.png";
+import events from "@/assets/Event.png";
+import bridalimg from "@/assets/bridalimg.png";
+import newimg4 from "@/assets/newimage4.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +47,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Bridal and occasion makeup in London by Anita Lordman, finalist for Best Bridal Makeup Artist at the Hair & Beauty Awards UK 2025.",
+          "Bridal and occasion makeup in London by Anita Lordman, finalist for Best Bridal Individual (Make Up) at the UK Hair & Beauty Awards 2025.",
       },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_GB" },
@@ -109,23 +112,31 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 type Shot = {
   src: string;
   alt: string;
-  cat: "Bridal" | "Makeup" | "Events";
+  cat: "Bridal" | "Special Occasion";
   ratio: string;
 };
 
+// Order here = order shown under "All", so bridal and special occasion are mixed.
 const GALLERY: Shot[] = [
-  { src: img2, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
-  { src: img6, alt: "Eye makeup close-up by Anita", cat: "Makeup", ratio: "3/4" },
-  { src: img5, alt: "Soft glam makeup by Anita", cat: "Makeup", ratio: "1/1" },
-  { src: img7, alt: "Photoshoot makeup by Anita", cat: "Makeup", ratio: "3/4" },
-  { src: img4, alt: "Event makeup by Anita", cat: "Events", ratio: "3/4" },
-  { src: img9, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
-  { src: img8, alt: "Skin close-up after makeup by Anita", cat: "Makeup", ratio: "1/1" },
-  { src: img10, alt: "Defined eye makeup by Anita", cat: "Makeup", ratio: "3/4" },
-  { src: img3, alt: "Evening event makeup by Anita", cat: "Events", ratio: "3/4" },
+  { src: bridal11, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
+  { src: img4, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: bridal, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
+  { src: newbridal, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
+  { src: img6, alt: "Eye makeup close-up by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: bridal1, alt: "Soft, glowing bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
+  { src: bridal12, alt: "Long-lasting bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
+  { src: img8, alt: "Skin finish close-up by Anita", cat: "Special Occasion", ratio: "1/1" },
+  { src: bridal121, alt: "Bridal skin finish by Anita", cat: "Bridal", ratio: "3/4" },
+  { src: bridal1212, alt: "Natural bridal glam by Anita", cat: "Bridal", ratio: "3/4" },
+  { src: newimg3, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: newimg1, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: newimg2, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: newimg4, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: events, alt: "Event makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: bridalimg, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
 ];
 
-const CATS = ["All", "Bridal", "Makeup", "Events"] as const;
+const CATS = ["All", "Bridal", "Special Occasion"] as const;
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -386,7 +397,7 @@ function About() {
       <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-20 md:px-10 md:py-32 lg:grid-cols-2 lg:items-center lg:gap-24">
         <Reveal>
           <img
-            src={artist}
+            src={artist1}
             alt="Anita Lordman, founder of Gems Beauty London"
             loading="lazy"
             className="aspect-[3/4] w-full border border-gold-line object-cover"
@@ -402,7 +413,7 @@ function About() {
             occasion makeup. She trained at the Academy of Freelance Makeup London, holds a bridal
             qualification from Layefa Beauty, and was a finalist for{" "}
             <em className="font-serif text-[1.05em] text-foreground">
-              Best Bridal Makeup Artist at the Hair &amp; Beauty Awards UK 2025
+              Best Bridal Individual (Make Up) at the UK Hair &amp; Beauty Awards 2025
             </em>
             .
           </p>
@@ -451,7 +462,7 @@ const SIGNATURE_IMAGES = [
   { src: bridal121, alt: "Bridal skin finish by Anita" },
   { src: bridal12, alt: "Long-lasting bridal makeup by Anita" },
   { src: bridal1212, alt: "Natural bridal glam by Anita" },
-  { src: img2, alt: "Bridal look created from a client's inspiration" },
+  { src: newbridal, alt: "Bridal look created from a client's inspiration" },
 ];
 
 function Signature() {
@@ -498,7 +509,7 @@ function Signature() {
 
 const SERVICES = [
   {
-    src: bridalimg,
+    src: bridal121,
     title: "Bridal Makeup",
     price: "From £300",
     text: "Three bridal packages, each with a trial included, so your look is settled long before the wedding morning.",
@@ -506,7 +517,7 @@ const SERVICES = [
     alt: "Bridal makeup by Anita",
   },
   {
-    src: img4,
+    src: newimg2,
     title: "Events & Special Occasions",
     price: "Price on enquiry",
     text: "Parties, celebrations and shoots. Soft or full glam, done to suit your outfit and the occasion.",
@@ -791,7 +802,7 @@ function Portfolio() {
             Portfolio
           </h2>
           <p className="mt-5 font-serif text-xl font-light italic text-muted-foreground sm:text-2xl">
-            Brides, events and shoots.
+            Brides and special occasions.
           </p>
         </Reveal>
 
@@ -874,21 +885,16 @@ function Portfolio() {
 
 function Featured() {
   return (
-    <section className="relative isolate overflow-hidden border-y border-gold-line">
-      <img
-        src={bridal1}
-        alt="Bridal makeup by Anita"
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-24 [text-shadow:0_1px_14px_rgb(0_0_0/0.5)] md:px-10 md:py-44">
-        <Reveal className="max-w-2xl">
-          <p className="eyebrow !text-gold">Hair &amp; Beauty Awards UK 2025</p>
-          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-champagne sm:text-4xl md:text-5xl lg:text-[3.4rem]">
-            Finalist, Best Bridal Makeup Artist.
+    <section className="border-y border-gold-line bg-wine">
+      <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-5 py-20 md:px-10 md:py-32 lg:grid-cols-2 lg:gap-20">
+        <Reveal className="order-2 lg:order-1">
+          <p className="eyebrow !text-gold">UK Hair &amp; Beauty Awards 2025</p>
+          <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-champagne sm:text-4xl md:text-5xl lg:text-[3.2rem]">
+            Finalist, Best Bridal Individual (Make Up).
           </h2>
           <p className="mt-8 max-w-xl text-sm leading-[1.9] text-champagne/85 md:text-base">
-            A proud moment after almost seven years of bridal work, and a lot of happy brides along
+            Gems Beauty London was shortlisted as an official finalist in the London category, a
+            proud moment after almost seven years of bridal work and a lot of happy brides along
             the way.
           </p>
           <a
@@ -897,6 +903,15 @@ function Featured() {
           >
             See her work
           </a>
+        </Reveal>
+
+        <Reveal delay={120} className="order-1 lg:order-2">
+          <img
+            src={certificate}
+            alt="2025 Finalist Certificate of Recognition for Gems Beauty London, Best Bridal Individual (Make Up), UK Hair and Beauty Awards 2025"
+            loading="lazy"
+            className="mx-auto h-auto w-full max-w-md border border-gold-line bg-white shadow-2xl"
+          />
         </Reveal>
       </div>
     </section>
@@ -911,7 +926,7 @@ const WHY = [
   { title: "Bridal qualified", text: "Bridal makeup qualification from Layefa Beauty." },
   {
     title: "Awards finalist",
-    text: "Best Bridal Makeup Artist, Hair & Beauty Awards UK 2025.",
+    text: "Best Bridal Individual (Make Up), UK Hair & Beauty Awards 2025.",
   },
 ];
 
@@ -951,18 +966,21 @@ type Testimonial = {
   rating: number;
 };
 
+// Replace the existing TESTIMONIALS array in your route file with this one.
+// The Testimonial type and everything else in the section stays the same.
+
 const TESTIMONIALS: Testimonial[] = [
   {
     title: "Best makeup artist",
-    name: "Bride", // add the bride's first name if you have it
+    name: "Amede, Bride",
     source: "Hitched",
     quote:
-      "I honestly couldn't have been happier with my makeup! Anita was absolutely amazing from start to finish. She listened to exactly what I wanted and made me feel so comfortable and beautiful on my wedding day. My makeup looked amazing, lasted all day and night, and I still felt like myself. But what really stood out was how much she went above and beyond. She helped me throughout the day, not just with my makeup, and was always there whenever I needed her. She genuinely did so much more than I expected and I really appreciated having her there. She was so lovely, calm and easy to be around, and I got so many compliments on my makeup. I absolutely loved it and would 100% recommend her to any bride. Thank you so much for everything! ❤️",
+      "I honestly couldn't have been happier with my makeup! Anita was absolutely amazing from start to finish. She listened to exactly what I wanted and made me feel so comfortable and beautiful on my wedding day. The picture is from my trial as I wait for my wedding pictures to be sent by the photographer. My makeup looked amazing, lasted all day and night, and I still felt like myself. But what really stood out was how much she went above and beyond. She helped me throughout the day, not just with my makeup, and was always there whenever I needed her. She genuinely did so much more than I expected and I really appreciated having her there. She was so lovely, calm and easy to be around, and I got so many compliments on my makeup. I absolutely loved it and would 100% recommend her to any bride. Thank you so much for everything! ❤️",
     rating: 5,
   },
   {
     title: "A true gem!",
-    name: "Bride", // add the bride's first name if you have it
+    name: "Twanieka, Bride",
     source: "Hitched",
     quote:
       "I stumbled across Gem's late into my wedding planning as my previous intended MUA was no longer available. The response was quick and professional. I was booked in for my trial with ease, sent terms and conditions and asked for inspired looks. Anita visited me at home and we conducted a magical make-up trial. I am not used to wearing full glam so was very nervous, but she was patient and helped me find my perfect look. On the day, she arrived on time, in good spirits and gave me and my bridal team the BEST glam make-overs. She is professional, friendly, good fun and really made me the most beautiful bride. Her special bride kit (for touch ups) was a lovely touch. 100% recommend.",
@@ -995,7 +1013,7 @@ const TESTIMONIALS: Testimonial[] = [
     rating: 5,
   },
   {
-    name: "Happy client",
+    name: "Jen",
     quote:
       "Thanks soo much Anita!! Honestly! My makeup looked so flawless and it stayed for the entire night without me looking oily or anything. You're my makeup artist now 😂💯",
     rating: 5,
@@ -1154,12 +1172,12 @@ function Testimonials() {
 /* ------------------------------------------------------------ Instagram */
 
 const INSTA = [
-  { src: img2, alt: "Bridal look on Instagram" },
-  { src: img5, alt: "Soft glam on Instagram" },
+  { src: bridal1, alt: "Bridal look on Instagram" },
+  { src: newbridal, alt: "Bridal makeup on Instagram" },
   { src: img6, alt: "Eye makeup on Instagram" },
   { src: img4, alt: "Event look on Instagram" },
-  { src: img10, alt: "Makeup detail on Instagram" },
-  { src: img7, alt: "Photoshoot look on Instagram" },
+  { src: bridal12, alt: "Bridal makeup detail on Instagram" },
+  { src: newimg2, alt: "Makeup look on Instagram" },
 ];
 
 function Instagram() {
@@ -1283,8 +1301,8 @@ function Contact() {
       <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-20">
         <Reveal className="min-w-0 lg:sticky lg:top-28">
           <img
-            src={img5}
-            alt="Soft glam makeup by Anita"
+            src={artist}
+            alt="Makeup by Anita"
             loading="lazy"
             className="aspect-[4/3] w-full border border-gold-line object-cover object-top sm:aspect-[16/10] lg:aspect-[4/5]"
           />

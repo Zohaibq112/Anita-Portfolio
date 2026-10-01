@@ -4,8 +4,8 @@ import { Footer, Header, WHATSAPP_URL, WhatsAppButton } from "@/components/SiteC
 import artist from "@/assets/artist.png";
 import bridal1 from "@/assets/bridal1.png";
 import bridal11 from "@/assets/bridal11.png";
-import img2 from "@/assets/image2.png";
-import img9 from "@/assets/image9.png";
+import img2 from "@/assets/newimage2.png";
+import img9 from "@/assets/newimagebridal.png";
 
 export const Route = createFileRoute("/About")({
   head: () => ({

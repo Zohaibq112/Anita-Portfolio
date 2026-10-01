@@ -4,12 +4,10 @@ import { ArrowLeft, Check, MapPin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Footer, Header, WHATSAPP_URL, WhatsAppButton } from "@/components/SiteChrome";
 import { cn } from "@/lib/utils";
-import bridal from "@/assets/image5.png";
-import events from "@/assets/image7.png";
 import bridalHero from "@/assets/bridal.png";
 import eventsHero from "@/assets/image4.png";
-import bridalimg from "@/assets/bridalimg.png";
-
+import newimg3 from "@/assets/newimage3.png";
+import img6 from "@/assets/newimage2.png";
 
 type Package = { name: string; price: string; includes: string };
 
@@ -29,7 +27,7 @@ const SERVICES: Record<string, Service> = {
   bridal: {
     title: "Bridal Makeup",
     eyebrow: "The Bridal Experience",
-    image: bridalimg,
+    image: newimg3,
     hero: bridalHero,
     alt: "Bridal makeup by Anita",
     intro:
@@ -64,7 +62,7 @@ const SERVICES: Record<string, Service> = {
   events: {
     title: "Events & Special Occasions",
     eyebrow: "Event Makeup",
-    image: events,
+    image: img6,
     hero: eventsHero,
     alt: "Event makeup by Anita",
     // price: "£000", // <-- add your price here
