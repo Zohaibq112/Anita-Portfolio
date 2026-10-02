@@ -1285,6 +1285,32 @@ function Faq() {
 
 /* -------------------------------------------------------------- Contact */
 
+// Uses the WHATSAPP_URL you already have, so no number to set and nothing to install.
+function buildWhatsAppUrl(form: HTMLFormElement) {
+  const get = (name: string) => {
+    const el = form.elements.namedItem(name) as HTMLInputElement | null;
+    return el && el.value.trim() ? el.value.trim() : "-";
+  };
+
+  const text = [
+    "*New enquiry from the website*",
+    "",
+    "*Name:* " + get("name"),
+    "*Email:* " + get("email"),
+    "*Phone:* " + get("phone"),
+    "*Date:* " + get("date"),
+    "*Occasion:* " + get("occasion"),
+    "*Getting ready at:* " + get("location"),
+    "",
+    "*The look I have in mind:*",
+    get("message"),
+  ].join("\n");
+
+  const url = new URL(WHATSAPP_URL);
+  url.searchParams.set("text", text);
+  return url.toString();
+}
+
 const inputClass =
   "block min-h-[3rem] w-full min-w-0 rounded-none border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus-visible:ring-0 sm:text-sm";
 
@@ -1301,7 +1327,7 @@ function Contact() {
             alt="Makeup by Anita"
             loading="lazy"
             className="aspect-[4/3] w-full border border-gold-line object-cover object-[center_10%] sm:aspect-[16/10] lg:aspect-[4/5]"
-            />
+          />
         </Reveal>
         <Reveal delay={120} className="min-w-0">
           <p className="eyebrow">Enquiry</p>
@@ -1318,8 +1344,11 @@ function Contact() {
             className="mt-10 space-y-8 md:mt-12"
             onSubmit={(e) => {
               e.preventDefault();
+              if (!formRef.current) return;
+              const url = buildWhatsAppUrl(formRef.current);
+              window.open(url, "_blank", "noopener,noreferrer");
               setSent(true);
-              formRef.current?.reset();
+              formRef.current.reset();
             }}
           >
             <div className="grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2">
@@ -1385,7 +1414,7 @@ function Contact() {
             </button>
 
             <p aria-live="polite" className="text-sm text-muted-foreground">
-              {sent && "Thank you! Anita will be in touch soon."}
+              {sent && "WhatsApp has opened with your enquiry. Just press send to reach Anita."}
             </p>
           </form>
         </Reveal>

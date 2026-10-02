@@ -87,6 +87,42 @@ const inputClass =
 const summaryClass =
   "flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-light text-foreground md:text-xl [&::-webkit-details-marker]:hidden";
 
+// Builds a prefilled WhatsApp link from the form, using the WHATSAPP_URL you already have.
+function buildWhatsAppUrl(form: HTMLFormElement, priceLabel: string) {
+  const get = (name: string) => {
+    const el = form.elements.namedItem(name) as HTMLInputElement | null;
+    return el && el.value.trim() ? el.value.trim() : "-";
+  };
+
+  const lines = [
+    "*New enquiry from the website*",
+    "",
+    "*Service:* " + get("service"),
+  ];
+
+  if (get("package") !== "-") {
+    lines.push("*Package:* " + get("package"));
+  }
+
+  lines.push(
+    "*Price:* " + priceLabel,
+    "",
+    "*Name:* " + get("name"),
+    "*Email:* " + get("email"),
+    "*Phone:* " + get("phone"),
+    "*Date:* " + get("date"),
+    "*Preferred time:* " + get("time"),
+    "*Location:* " + get("location"),
+    "",
+    "*More about my wishes:*",
+    get("message"),
+  );
+
+  const url = new URL(WHATSAPP_URL);
+  url.searchParams.set("text", lines.join("\n"));
+  return url.toString();
+}
+
 function Toggle() {
   return (
     <span aria-hidden="true" className="text-xl leading-none text-primary">
@@ -203,8 +239,11 @@ function ServicePage() {
               className="mt-10 space-y-8 border-t border-gold-line pt-10"
               onSubmit={(event) => {
                 event.preventDefault();
+                const form = event.currentTarget;
+                const url = buildWhatsAppUrl(form, priceLabel);
+                window.open(url, "_blank", "noopener,noreferrer");
                 setSent(true);
-                event.currentTarget.reset();
+                form.reset();
                 setSelectedPackage(0);
               }}
             >
@@ -307,7 +346,7 @@ function ServicePage() {
               </div>
 
               <p aria-live="polite" className="text-sm text-muted-foreground">
-                {sent && "Thank you. Anita will get back to you as soon as possible."}
+                {sent && "WhatsApp has opened with your enquiry. Just press send to reach Anita."}
               </p>
             </form>
 
