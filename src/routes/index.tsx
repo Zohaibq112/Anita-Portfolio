@@ -515,7 +515,7 @@ const SERVICES = [
   {
     src: newimg2,
     title: "Events & Special Occasions",
-    price: "Price on enquiry",
+    price: "From £100",
     text: "Parties, celebrations and shoots. Soft or full glam, done to suit your outfit and the occasion.",
     slug: "events",
     alt: "Event makeup by Anita",
