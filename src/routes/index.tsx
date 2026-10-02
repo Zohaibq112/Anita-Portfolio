@@ -16,7 +16,6 @@ import artist from "@/assets/artist.png";
 import artist1 from "@/assets/artist1.png";
 import image11 from "@/assets/image11.png";
 import bridal from "@/assets/bridal.png";
-import bridal1 from "@/assets/bridal1.png";
 import bridal11 from "@/assets/bridal11.png";
 import bridal12 from "@/assets/bridal12.png";
 import bridal121 from "@/assets/bridal121.png";
@@ -122,7 +121,6 @@ const GALLERY: Shot[] = [
   { src: bridal, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
   { src: newbridal, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
   { src: img6, alt: "Eye makeup close-up by Anita", cat: "Special Occasion", ratio: "3/4" },
-  { src: bridal1, alt: "Soft, glowing bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
   { src: bridal12, alt: "Long-lasting bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
   { src: img8, alt: "Skin finish close-up by Anita", cat: "Special Occasion", ratio: "1/1" },
   { src: bridal121, alt: "Bridal skin finish by Anita", cat: "Bridal", ratio: "3/4" },
@@ -131,7 +129,7 @@ const GALLERY: Shot[] = [
   { src: newimg1, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
   { src: newimg2, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
   { src: newimg4, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
-  { src: events, alt: "Event makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: events, alt: "Event makeup by Anita", cat: "Bridal", ratio: "3/4" },
 ];
 
 const CATS = ["All", "Bridal", "Special Occasion"] as const;
@@ -376,10 +374,10 @@ function Statement() {
         </Reveal>
         <Reveal delay={120} className="relative">
           <img
-            src={bridal1}
+            src={bridal1212}
             alt="Soft, glowing bridal makeup by Anita"
             loading="lazy"
-            className="aspect-[4/5] w-full border border-gold-line object-cover"
+            className="aspect-[4/5] w-full border border-gold-line object-cover object-[center_10%]"
           />
         </Reveal>
       </div>
@@ -395,7 +393,7 @@ function About() {
       <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-20 md:px-10 md:py-32 lg:grid-cols-2 lg:items-center lg:gap-24">
         <Reveal>
           <img
-            src={artist1}
+            src={artist}
             alt="Anita Lordman, founder of Gems Beauty London"
             loading="lazy"
             className="aspect-[3/4] w-full border border-gold-line object-cover"
@@ -1170,7 +1168,7 @@ function Testimonials() {
 /* ------------------------------------------------------------ Instagram */
 
 const INSTA = [
-  { src: bridal1, alt: "Bridal look on Instagram" },
+  { src: newimg3, alt: "Bridal look on Instagram" },
   { src: newbridal, alt: "Bridal makeup on Instagram" },
   { src: img6, alt: "Eye makeup on Instagram" },
   { src: img4, alt: "Event look on Instagram" },
@@ -1302,8 +1300,8 @@ function Contact() {
             src={artist}
             alt="Makeup by Anita"
             loading="lazy"
-            className="aspect-[4/3] w-full border border-gold-line object-cover object-top sm:aspect-[16/10] lg:aspect-[4/5]"
-          />
+            className="aspect-[4/3] w-full border border-gold-line object-cover object-[center_10%] sm:aspect-[16/10] lg:aspect-[4/5]"
+            />
         </Reveal>
         <Reveal delay={120} className="min-w-0">
           <p className="eyebrow">Enquiry</p>
@@ -1440,7 +1438,7 @@ function Contact() {
 function FinalCta() {
   return (
     <section className="relative isolate overflow-hidden border-y border-gold-line">
-      <img
+     <img
         src={image11}
         alt="Makeup by Anita"
         loading="lazy"

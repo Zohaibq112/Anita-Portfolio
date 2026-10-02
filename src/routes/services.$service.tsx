@@ -8,6 +8,7 @@ import bridalHero from "@/assets/bridal.png";
 import eventsHero from "@/assets/image4.png";
 import newimg3 from "@/assets/newimage3.png";
 import img6 from "@/assets/newimage2.png";
+import bridal121 from "@/assets/bridal121.png";
 
 type Package = { name: string; price: string; includes: string };
 
@@ -27,7 +28,7 @@ const SERVICES: Record<string, Service> = {
   bridal: {
     title: "Bridal Makeup",
     eyebrow: "The Bridal Experience",
-    image: newimg3,
+    image: bridal121,
     hero: bridalHero,
     alt: "Bridal makeup by Anita",
     intro:
@@ -59,22 +60,25 @@ const SERVICES: Record<string, Service> = {
     ],
   },
 
-  events: {
-    title: "Events & Special Occasions",
-    eyebrow: "Event Makeup",
-    image: img6,
-    hero: eventsHero,
-    alt: "Event makeup by Anita",
-    // price: "£000", // <-- add your price here
-    intro:
-      "A refined makeup look for celebrations, parties and important occasions when you want to feel effortlessly beautiful.",
-    details: [
-      "A look created around your outfit and occasion",
-      "Soft, polished or more defined makeup options",
-      "Camera-ready skin and beautifully balanced definition",
-      "A calm, considered experience from start to finish",
-    ],
-  },
+events: {
+  title: "Events & Special Occasions",
+  eyebrow: "Event Makeup",
+  image: img6,
+  hero: eventsHero,
+  alt: "Event makeup by Anita",
+  price: "£100",
+  intro:
+    "A refined makeup look for celebrations, parties and important occasions when you want to feel effortlessly beautiful.",
+  details: [
+    "Standard Mobile Glam — £100 (London only)",
+    "Extra fees may apply for early bookings",
+    "Extra fees may apply for locations outside London",
+    "A look created around your outfit and occasion",
+    "Soft, polished or more defined makeup options",
+    "Camera-ready skin and beautifully balanced definition",
+    "A calm, considered experience from start to finish",
+  ],
+},
 };
 
 const inputClass =
