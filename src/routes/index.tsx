@@ -28,7 +28,6 @@ import newimg3 from "@/assets/newimage3.png";
 import newbridal from "@/assets/newimagebridal.png";
 import certificate from "@/assets/certificate.png";
 import events from "@/assets/Event.png";
-import bridalimg from "@/assets/bridalimg.png";
 import newimg4 from "@/assets/newimage4.png";
 
 export const Route = createFileRoute("/")({
@@ -128,12 +127,11 @@ const GALLERY: Shot[] = [
   { src: img8, alt: "Skin finish close-up by Anita", cat: "Special Occasion", ratio: "1/1" },
   { src: bridal121, alt: "Bridal skin finish by Anita", cat: "Bridal", ratio: "3/4" },
   { src: bridal1212, alt: "Natural bridal glam by Anita", cat: "Bridal", ratio: "3/4" },
-  { src: newimg3, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
+  { src: newimg3, alt: "Special occasion makeup by Anita", cat: "Bridal", ratio: "3/4" },
   { src: newimg1, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
   { src: newimg2, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
   { src: newimg4, alt: "Special occasion makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
   { src: events, alt: "Event makeup by Anita", cat: "Special Occasion", ratio: "3/4" },
-  { src: bridalimg, alt: "Bridal makeup by Anita", cat: "Bridal", ratio: "3/4" },
 ];
 
 const CATS = ["All", "Bridal", "Special Occasion"] as const;
