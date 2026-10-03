@@ -359,16 +359,23 @@ function Statement() {
         <Reveal>
           <p className="eyebrow">Soft glam, made to last</p>
           <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] text-foreground sm:text-4xl md:text-5xl lg:text-[3.4rem]">
-            Makeup that still looks like you.
+            Makeup that feels like you.
           </h2>
           <p className="mt-8 max-w-xl text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Anita&rsquo;s work is soft, glowing and built to last. She would rather bring your skin
-            forward than cover it up, and every look starts with what you actually want, whether
-            that&rsquo;s a barely-there glow or full glam.
+            At Gems Beauty London, we specialise in creating timeless, elegant makeup looks designed
+            to enhance your natural beauty while still allowing you to feel completely like
+            yourself.
           </p>
           <p className="mt-6 max-w-xl text-sm leading-[1.9] text-muted-foreground md:text-base">
-            Her brides tend to say the same two things afterwards: it lasted all day and night, and
-            they still felt like themselves.
+            From your wedding day to your most special occasions, every look is tailored to your
+            features, personal style and vision. Whether you&rsquo;re dreaming of soft, radiant
+            bridal glam or a beautifully polished look for a special event, our approach is all
+            about glowing skin, refined detail and makeup that photographs beautifully while lasting
+            throughout your day.
+          </p>
+          <p className="mt-6 max-w-xl text-sm leading-[1.9] text-muted-foreground md:text-base">
+            With a personalised and attentive experience from consultation to final touch-up, you
+            can feel confident knowing your makeup is in expert hands.
           </p>
           <div className="mt-10 h-px w-24 bg-primary/40" />
         </Reveal>
