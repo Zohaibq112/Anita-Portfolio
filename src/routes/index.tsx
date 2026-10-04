@@ -513,7 +513,7 @@ function Signature() {
 const SERVICES = [
   {
     src: bridal121,
-    title: "Bridal Makeup",
+    title: "Bridal Makeup (Mobile Bookings)",
     price: "From £300",
     text: "Three bridal packages, each with a trial included, so your look is settled long before the wedding morning.",
     slug: "bridal",
@@ -521,7 +521,7 @@ const SERVICES = [
   },
   {
     src: newimg2,
-    title: "Events & Special Occasions",
+    title: "Events & Special Occasions (Mobile Bookings)",
     price: "From £100",
     text: "Parties, celebrations and shoots. Soft or full glam, done to suit your outfit and the occasion.",
     slug: "events",

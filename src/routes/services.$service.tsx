@@ -26,7 +26,7 @@ type Service = {
 
 const SERVICES: Record<string, Service> = {
   bridal: {
-    title: "Bridal Makeup",
+    title: "Bridal Makeup (Mobile Bookings)",
     eyebrow: "The Bridal Experience",
     image: bridal121,
     hero: bridalHero,
@@ -61,7 +61,7 @@ const SERVICES: Record<string, Service> = {
   },
 
 events: {
-  title: "Events & Special Occasions",
+title: "Events & Special Occasions (Mobile Bookings)",
   eyebrow: "Event Makeup",
   image: img6,
   hero: eventsHero,
